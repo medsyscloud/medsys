@@ -3084,6 +3084,21 @@ a {
     width: 60%;
   }
 }
+.cid-sGzxOUZlnQ {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  background-color: #ffffff;
+}
+.cid-sGzxOUZlnQ .image-wrap img {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .cid-sGzxOUZlnQ .image-wrap img {
+    display: block;
+    margin: auto;
+    width: 70%;
+  }
+}
 .cid-sBo9SJ8eIK {
   padding-top: 90px;
   padding-bottom: 0px;
