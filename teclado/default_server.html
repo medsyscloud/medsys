@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)http://www.medsyscloud001.byethost18.com/medsysweb/login.php -->
+<html style="height: auto; min-height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Medsys Cloud</title>
+
+<link rel="stylesheet" type="text/css" href="./default_server_files/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="./default_server_files/AdminLTE.css">
+<link rel="stylesheet" type="text/css" href="./default_server_files/font-awesome.min.css"><!-- Optional font -->
+<link rel="stylesheet" type="text/css" href="./default_server_files/jquery.fileupload.css">
+<link rel="stylesheet" type="text/css" href="./default_server_files/jquery.fileupload-ui.css">
+<link rel="stylesheet" type="text/css" href="./default_server_files/colorbox.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./default_server_files/medsyscloud_ACTUALIZACON_FINAL_CORREGIDO_27092020.css">
+<script type="text/javascript" src="./default_server_files/jquery-3.2.1.min.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/jquery.ui.widget.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/jquery.storageapi.min.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/pStrength.jquery.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/pGenerator.jquery.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/bootstrap.min.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/adminlte.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/jquery.fileDownload.min.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/load-image.all.min.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/jqueryfileupload.min.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/typeahead.jquery.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/jquery.colorbox-min.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/mobile-detect.min.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/moment.min.js.descarga"></script>
+<link rel="stylesheet" type="text/css" href="./default_server_files/bootstrap-datetimepicker.css">
+<script type="text/javascript" src="./default_server_files/bootstrap-datetimepicker.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/ewdatetimepicker.js.descarga"></script>
+<script type="text/javascript">
+var EW_LANGUAGE_ID = "es";
+var EW_DATE_SEPARATOR = "/"; // Date separator
+var EW_TIME_SEPARATOR = ":"; // Time separator
+var EW_DATE_FORMAT = "dd/mm/yy"; // Default date format
+var EW_DATE_FORMAT_ID = 14; // Default date format ID
+var EW_DECIMAL_POINT = ",";
+var EW_THOUSANDS_SEP = ".";
+var EW_MIN_PASSWORD_STRENGTH = 15;
+var EW_GENERATE_PASSWORD_LENGTH = 4;
+var EW_GENERATE_PASSWORD_UPPERCASE = true;
+var EW_GENERATE_PASSWORD_LOWERCASE = true;
+var EW_GENERATE_PASSWORD_NUMBER = true;
+var EW_GENERATE_PASSWORD_SPECIALCHARS = false;
+var EW_SESSION_TIMEOUT = 1170; // Session timeout time (seconds)
+var EW_SESSION_TIMEOUT_COUNTDOWN = 60; // Count down time to session timeout (seconds)
+var EW_SESSION_KEEP_ALIVE_INTERVAL = 300; // Keep alive interval (seconds)
+var EW_RELATIVE_PATH = ""; // Relative path
+var EW_SESSION_URL = EW_RELATIVE_PATH + "ewsession14.php"; // Session URL
+var EW_IS_LOGGEDIN = false; // Is logged in
+var EW_IS_SYS_ADMIN = false; // Is sys admin
+var EW_CURRENT_USER_NAME = ""; // Current user name
+var EW_IS_AUTOLOGIN = false; // Is logged in with option "Auto login until I logout explicitly"
+var EW_TIMEOUT_URL = EW_RELATIVE_PATH + "logout.php"; // Timeout URL
+var EW_LOOKUP_FILE_NAME = "ewlookup14.php"; // Lookup file name
+var EW_LOOKUP_FILTER_VALUE_SEPARATOR = ","; // Lookup filter value separator
+var EW_MODAL_LOOKUP_FILE_NAME = "ewmodallookup14.php"; // Modal lookup file name
+var EW_AUTO_SUGGEST_MAX_ENTRIES = 10; // Auto-Suggest max entries
+var EW_DISABLE_BUTTON_ON_SUBMIT = true;
+var EW_IMAGE_FOLDER = "phpimages/"; // Image folder
+var EW_UPLOAD_URL = "ewupload14.php"; // Upload URL
+var EW_UPLOAD_TYPE = "POST"; // Upload type
+var EW_UPLOAD_THUMBNAIL_WIDTH = 200; // Upload thumbnail width
+var EW_UPLOAD_THUMBNAIL_HEIGHT = 0; // Upload thumbnail height
+var EW_MULTIPLE_UPLOAD_SEPARATOR = ","; // Upload multiple separator
+var EW_USE_COLORBOX = true;
+var EW_USE_JAVASCRIPT_MESSAGE = false;
+var EW_MOBILE_DETECT = new MobileDetect(window.navigator.userAgent);
+var EW_IS_MOBILE = !!EW_MOBILE_DETECT.mobile();
+var EW_PROJECT_STYLESHEET_FILENAME = "phpcss/medsyscloud_ACTUALIZACON_FINAL_CORREGIDO_27092020.css"; // Project style sheet
+var EW_PDF_STYLESHEET_FILENAME = "phpcss/ewpdf.css"; // PDF style sheet
+var EW_TOKEN = "Jgbd8qWqGRG5UilFdlCa9Q..";
+var EW_CSS_FLIP = false;
+var EW_LAZY_LOAD = true;
+var EW_RESET_HEIGHT = true;
+var EW_DEBUG_ENABLED = false;
+var EW_CONFIRM_CANCEL = true;
+var EW_SEARCH_FILTER_OPTION = "Client";
+</script>
+<script type="text/javascript" src="./default_server_files/jsrender.min.js.descarga"></script>
+<script type="text/javascript">
+$.views.settings.debugMode(EW_DEBUG_ENABLED);
+</script>
+<script type="text/javascript" src="./default_server_files/ewp14.js.descarga"></script>
+<script type="text/javascript" src="./default_server_files/jquery.ewjtable.min.js.descarga"></script>
+<script type="text/javascript">
+var ewLanguage = new ew_Language({"addbtn":"Guardar","cancelbtn":"Cancelar","clickrecaptcha":"Por favor haga clic en el reCAPTCHA","closebtn":"Cerrar","confirmbtn":"Confirmar","confirmcancel":"¿Desea cancelar?","lightboxtitle":" ","lightboxcurrent":"imagen {current} de {total}","lightboxprevious":"anterior","lightboxnext":"siguiente","lightboxclose":"cerrar","lightboxxhrerror":"El contenido no se pudo mostrar.","lightboximgerror":"La imagen no se pudo mostrar.","countselected":"%s seleccionados","currentpassword":"Contraseña actual: ","deleteconfirmmsg":"¿Confirma que desea eliminar el registro?","deletefilterconfirm":"¿Confirma que desea eliminar el filtro %s?","editbtn":"Actualizar","enterfiltername":"Indique el nombre para el filtro","enternewpassword":"Indique cual será la nueva contraseña","enteroldpassword":"Indique cual es la contraseña que usa actualmente","enterpassword":"Indique su contraseña","enterpwd":"Indique su contraseña","enterusername":"Indique su nombre de usuario","entervalidatecode":"Escriba el código que se muestra","entersenderemail":"Indique el correo electrónico del remitente","enterpropersenderemail":"La direccion ingresada es incorrecta o se intentó exceder el máximo de remitentes permitidos.","enterrecipientemail":"Indique el correo del destinatario","enterproperrecipientemail":"La direccion ingresada es incorrecta o se intentó exceder el máximo de destinatarios permitidos.","enterproperccemail":"La direccion Cc ingresada es incorrecta o se intentó exceder el máximo de destinatarios Cc permitidos.","enterproperbccemail":"La direccion Bcc ingresada es incorrecta o se intentó exceder el máximo de destinatarios Bcc permitidos.","entersubject":"Indique el asunto del correo","enteruid":"Indique su nombre de usuario","entervalidemail":"Por favor escriba una dirección de correo válida","exporting":"Exportando información, por favor espere un momento...","exporttoemailtext":"Enviar por correo","failedtoexport":"No se pudo exportar la información","filtername":"Nombre del filtro","overwritebtn":"Sobreescribir","incorrectemail":"Correo electrónico incorrecto","incorrectfield":"Campo incorrecto","incorrectfloat":"Número decimal incorrecto","incorrectguid":"GUID Incorrecto","incorrectinteger":"Número entero incorrecto","incorrectphone":"Número telefónico incorrecto","incorrectregexp":"El campo no coincide con el formato requerido","incorrectrange":"El número debe estar en el rango entre %1 y %2","incorrectssn":"Número de seguro social incorrecto","incorrectzip":"Código postal incorrecto","insertfailed":"Ocurrió un error en la inserción","invalidrecord":"¡Registro inválido! No se especificó la clave principal","loading":"Cargando...","maxfilesize":"Error, el archivo seleccionado excede el tamaño máximo: %s bytes.","messageok":"Aceptar","mismatchpassword":"La contraseña nueva y la confirmación de la contraseña no coinciden","more":"Más","next":"Siguiente","noaddrecord":"No hay registros para agregar","nofieldselected":"No se ha seleccionado campo que se desea actualizar","norecord":"No se encontraron registros","norecordselected":"No hay registros seleccionados","of":"de","page":"Página","passwordstrength":"Fortaleza de la contraseña: %p","passwordtoosimple":"Error, su contraseña es demasiado simple, para una mayor seguridad elija una contraseña que contenga al menos 8 caracteres y contenga al menos letras mayúsculas, minúsculas y números.","permissionaddcopy":"Crear nuevos Registros","permissiondelete":"Eliminar","permissionedit":"Actualizar","permissionlistsearchview":"Ver","permissionlist":"Listar","permissionsearch":"Buscar","permissionview":"Ver","pleaseselect":"-- Seleccione una opción --","pleasewait":"Espere por favor...","prev":"Anterior","quicksearchauto":"Automático","quicksearchautoshort":"","quicksearchall":"Todas las palabras","quicksearchallshort":"Todo","quicksearchany":"Que cualquier palabra coincida","quicksearchanyshort":"Cualquiera","quicksearchexact":"Coincidencia exacta","quicksearchexactshort":"Exactamente","record":"Registros","recordsperpage":"registros por página","reloadbtn":"Actualizar","search":"Búsqueda","searchbtn":"Buscar","selectbtn":"Seleccionar","sendemailsuccess":"Correo enviado exitosamente","sessionwillexpire":"Su sesión se cerrará automáticamente en %s segundos. Haga clic en OK para mantener iniciada la sesión.","sessionexpired":"Su sesión ha caducado, es necesario que vuelva a iniciar sesión.","updatebtn":"Guardar cambios","uploading":"Subiendo archivo...","uploadstart":"Iniciando...","uploadcancel":"Cancelar","uploaddelete":"<i class='fas fa-times' style='font-size: 40px;'></i>","uploadoverwrite":"¿Desea sobreescribir el archivo anterior?","uploaderrmsgmaxfilesize":"Error, el archivo es demasiado grande","uploaderrmsgminfilesize":"Error, el archivo es demasiado pequeño","uploaderrmsgacceptfiletypes":"Error, tipo de archivo no permitido","uploaderrmsgmaxnumberoffiles":"Error, se excedió el número máximo de archivos permitidos","uploaderrmsgmaxfilelength":"Error, los nombres de archivo que intenta subir sobrepasan el máximo permitido por el campo. Por favor reduzca el tamaño de los nombres de archivo e intente de nuevo.","useradministrator":"Administrador","useranonymous":"Anónimo","userdefault":"Default","userleveladministratorname":"El nombre del perfil de usuario -1 debe ser 'Administrator'","userlevelanonymousname":"El nombre del perfil de usuario -2 debe ser 'Anonymous'","userlevelidinteger":"El ID de perfil debe ser un número entero","userleveldefaultname":"El nombre del perfil de usuario 0 debe ser 'Default'","userlevelidincorrect":"El ID de perfil debe ser mayor a 0","userlevelnameincorrect":"El nombre del perfil de usuario no puede ser 'Administrator' ni tampoco 'Default'","valuenotexist":"El valor no existe","wrongfiletype":"Error, el archivo que intenta subir es de un tipo de archivo no permitido.","tableorview":"Tablas"});var ewVar = {"languages":{"languages":[]},"login":{"isLoggedIn":false,"currentUserName":"","logoutUrl":"logout.php","logoutText":"Cerrar Sesi\u00f3n","loginUrl":"login.php","loginText":"Iniciar Sesi\u00f3n","canLogin":true,"canLogout":false}};
+</script>
+<script type="text/javascript" src="./default_server_files/ckeditor.js.descarga"></script><style>.cke{visibility:hidden;}</style>
+<script type="text/javascript" src="./default_server_files/eweditor.js.descarga"></script>
+<link rel="stylesheet" type="text/css" href="./default_server_files/ricardo.css"><link rel="stylesheet" href="./default_server_files/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"><style>
+.ewGrid {width: 100%;}
+.ewGrid .ewTable .ewTableHighlightRow>td {background-color:#D5FFF4;}
+.ewTableSelectRow>td {color: #333 !important; background-color:#A6FFE9 !important;}
+.ewMasterDiv {display: none;}
+.ewGrid .ewTable>thead>tr>th, .ewGrid .ewTable>thead>tr>td {
+    background-color: #efefef;
+    color: #000;
+    border-color: #ddd;
+    padding: 10px;}
+.ewGrid .ewTable .ewTableAltRow {
+    background-color: #f9f9f9;
+}
+.ewGrid .ewTable>tbody>tr>td, .ewGrid .ewTable>tfoot>tr>td {
+    padding: 4px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-color: #ddd;
+}
+.ewGrid {
+    border: 1px solid #ffffff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ffffff;
+	   margin-bottom: 0px;}
+.ewGrid .ewGridLowerPanel {
+    border-top: 1px solid #ddd;
+}
+.ewGridLowerPanel.box-footer {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 10px;
+    color: #3C8DBC;
+}
+.table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>th, .table>tfoot>tr>td {
+    vertical-align: middle !important;*/
+    border-top: 1px solid #ddd;
+}.ewListOptionBody .btn-sm {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}.box {
+    box-shadow: 0 0 0 rgba(0,0,0,0.1) !important;
+}.ewGridUpperPanel.box-header, .ewGridLowerPanel.box-footer {
+}.form-control {
+    background-color: #fffbd1;
+}.skin-blue .main-header .logo {
+    background-color: #1e282c;
+    color: #fff;
+}
+.skin-blue .main-header .logo:hover {
+    background-color: #000000;
+}
+.skin-blue .main-header .navbar {
+    background-color: #00a1ff;
+}
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #ff8d05;
+}
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background-color: #37474F;
+}.skin-blue .sidebar-menu>li.active>a {
+    border-left-color: #ff8d05;
+}.sidebar-menu>li>a>.fa, .sidebar-menu>li>a>.glyphicon, .sidebar-menu>li>a>.ion {
+    color: #00c0ef;
+}.login-box-msg, .register-box-msg {
+    display: none;
+}.dropdown-menu>li>a {color: #fff;font-size: 16px;padding-top: 5px;padding-bottom: 5px;}
+.dropdown-menu {box-shadow: none;background-color: #008678;border-color: #008678;}
+.label-info {background-color: #ff0000 !important;font-size: 14px;font-weight: normal;}
+.dropdown-menu>li>a:hover {background-color: #075e54;color: #fff;}.navbar-nav>.user-menu>.dropdown-menu>.user-body {
+    border-bottom: 1px solid #37474f;
+    border-top: 1px solid #37474f;
+    background: #37474f;
+    color: #ffffff;
+}
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default {color: #ffffff;background: #ed3b3b;border-color: #ed3b3b}
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default:hover {color: #ffffff;background-color: #ff0000 !important;border-color: #ff0000 !important}
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu {border: 1px solid #37474f;background: #37474f;}
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer {background-color: #37474f;}
+.content-header>.breadcrumb>li>a {color: #00a1ff;}
+.breadcrumb>.active {color: #ff8d05;}.content-header>.breadcrumb {
+    background: #FFFFFF !important; font-size:14px !important;
+}.content-header>h1 {font-size: 44px;color: #008678;min-height: 88px;}.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {background-color: #075e54;}.bootstrap-datetimepicker-widget.dropdown-menu {background-color: #f9f9f9;border-color: #dddddd;}
+.btn-primary {background-color: #00a1ff;border-color: #00a2ff;}
+.ewGridLowerPanel.box-footer {color: #00a1ff;}
+.col-sm-2 {width: 50% !important;}
+.form-control {width: 100% !important;}
+.col-sm-10 {width: 100% !important;}.form-horizontal .control-label {text-align: left;}h4, .h4 {font-size: 38px;color: #008678;}.nav-tabs-custom>.nav-tabs>li.active {border-top-color: #ff0000;}.nav-tabs-custom>.nav-tabs>li.active>a, .nav-tabs-custom>.nav-tabs>li.active:hover>a {background-color: #ff8d05;color: #ffffff;}
+.nav-tabs-custom>.nav-tabs>li.active>a {border-top-color: transparent;border-left-color: #ff8d05;border-right-color: #ff8d05;}.nav-tabs-custom>.nav-tabs>li>a {color: #ff8d05;}
+.nav-tabs-custom>.nav-tabs>li>a:hover {color: #ce7000;}.ewGrid .ewTable .ewTableSelectRow>td {background-color: #cacaca;color: #fff;}.skin-blue .sidebar-menu>li>a {border-left: 10px solid transparent;}.content-header>.breadcrumb {float: initial;position: initial;margin-top: 0px;padding-left: 0px;}.ric_divinterno {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 3px 5px;
+}
+
+.ric_divcontent {
+}
+
+/* Fake (pseudo) element, that enables vertical-align */
+.ric_divcontent:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}.fa {margin-top: 0px;}
+.modal-header {border-bottom-color: #ffffff;}.modal-footer {border-top-color: #ffffff;}.ewReportTable {width: 100%;}.form-inline .form-group {width: 100%;}.ewReportTable td {padding: 3px 10px;vertical-align: top;}.pageloader {
+position: fixed;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+z-index: 9999;
+background: url('phpimages/preloader4.gif') 50% 50% no-repeat rgb(249,249,249);
+opacity: 1;
+}.main-header .sidebar-toggle {width: 50px;height: 50px;text-align: center;}
+.main-header .navbar .nav>li.user>a>.glyphicon{margin-left: 3px;margin-right: 3px;}.fileinput-button {
+    padding: 15px 20px;
+    background: #00a1ff;
+    color: #ffffff !important;
+    border-color: #00a1ff;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+
+.btn-default:hover {
+    color: #ffffff !important;
+    background-color: #0678bb !important;
+    border-color: #0678bb;
+}
+
+
+.btn-default:active {
+    background-color: #0678bb;
+    color: #ffffff !important;
+    box-shadow: inset 0 8px 8px rgba(0,0,0,0.3);
+}
+
+
+.fileinput-button input {
+    height: 50px;
+}.nav-pills>li.active>a {border-top-color: #ff0000 !important; background-color: #009dde !important;}
+.nav-pills>li.active>a:hover {border-top-color: #ff0000 !important; background-color: #009dde !important;}
+.nav-pills>li>a {background: #bbebff !important;}.nav-pills>li>a:hover {background: #9be2ff !important;}
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu {right: 0%;}.ewListOptionBody .ewRowLink:focus {color:#ffffff; background: #075e54;}.dropdown-menu>li>a:focus {color: #ffffff; background-color: #075e54;}.ewDetail {color:#ffffff !important;}.dropdown-submenu>a:after {border-left-color: #ffffff !important;}.ewDetailAdd {color: #ffffff; background-color: #00af9d; border-color: #00af9d !important;}.ewDetailAdd:focus {color: #ffffff !important; background-color: #0678bb !important; border-color: #0678bb !important;}.ewAdd {color: #ffffff; background-color: #008678; border-color: #008678 !important;}.ewAdd:focus {color: #ffffff !important; background-color: #0678bb !important; border-color: #0678bb !important;}.ewEdit {color: #ffffff; background-color: #008678; border-color: #008678 !important;}.ewEdit:focus {color: #ffffff !important; background-color: #0678bb !important; border-color: #0678bb !important;}.ewDelete {color: #ffffff; background-color: #008678; border-color: #008678 !important;}.ewDelete:focus {color: #ffffff !important; background-color: #0678bb !important; border-color: #0678bb !important;}.ewGridAdd {color: #ffffff; background-color: #00af9d; border-color: #00af9d !important;}.ewGridAdd:focus {color: #ffffff !important; background-color: #0678bb !important; border-color: #0678bb !important;}.ewGridEdit {color: #ffffff; background-color: #00af9d; border-color: #00af9d !important;}.ewGridEdit:focus {color: #ffffff !important; background-color: #0678bb !important; border-color: #0678bb !important;}.ewAddBlankRow {color: #ffffff; background-color: #00af9d; border-color: #00af9d !important;}.ewAddBlankRow:focus {color: #ffffff !important; background-color: #0678bb !important; border-color: #0678bb !important;}.sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu>li:hover>a>span:not(.pull-right){
+    width: 170px;
+    left: 50px;
+}.ewGridLowerPanel.box-footer .btn-sm {padding: 10px !important; height: 38px !important;}.dropdown-menu {min-width: 200px !important;}.dropdown-submenu>.dropdown-menu {background: #ff8d05; border-color: #ff8d05;}.dropdown-submenu:hover>.dropdown-menu {background: #ff8d05; border-color: #ff8d05;}.ewDetailView:hover {background: #b16000 !important;}.ewDetailEdit:hover {background: #b16000 !important;}.ewListOptionBody .btn-group>.btn {background: #ff8d05; color: #ffffff !important; border-color: #ff8d05;}.btn-default:hover {color: #ffffff !important; background:#0678bb !important; border-color:#0678bb !important}.btn-default:focus {color: #ffffff !important; background:#0678bb !important; border-color:#0678bb !important}.btn {border-radius: 4px !important;}.ewButtonDropdown {background: #00af9d; color: #ffffff !important; border-color: #00af9d; border-radius: 4px !important;}[title~="Nuevo"] {background-color: #00af9d; border-color: #00af9d !important;}.ewSearchToggle {background: #008678 !important; color: #ffffff !important; border-color: #008678 !important; padding: 10px; margin-right: 10px}.ewSearchToggle:active {background: #0678bb !important; color: #ffffff !important; border-color: #0678bb !important}.ewShowAll {background: #ed3b3b !important; color: #ffffff !important; border-color: #ed3b3b !important; padding: 10px; margin-right: 10px}.ewShowAll:active {background: #0678bb !important; color: #ffffff !important; border-color: #0678bb !important}.ewAdvancedSearch {background: #008678 !important; color: #ffffff !important; border-color: #008678 !important; padding: 10px; margin-right: 10px}.ewAdvancedSearch:active {background: #0678bb !important; color: #ffffff !important; border-color: #0678bb !important}.ewEdit {background: #008678 !important; color: #ffffff !important; border-color: #008678 !important; padding: 10px; margin-right: 10px;}.ewEdit:active {background: #0678bb !important; color: #ffffff !important; border-color: #0678bb !important}.ewDelete {background: #008678 !important; color: #ffffff !important; border-color: #008678 !important; padding: 10px; margin-right: 10px;}.ewDelete:active {background: #0678bb !important; color: #ffffff !important; border-color: #0678bb !important}.ewAddEdit {margin-right: 10px !important}.dropdown-toggle {background: #ff8d05 !important; color: #ffffff !important; border-color: #ff8d05 !important; padding: 10px; min-height: 38px !important;}.dropdown-toggle:active {background: #0678bb !important; color: #ffffff !important; border-color: #0678bb !important}.fileinput-button {padding: 20px; border-radius: 50px !important;}.delete {padding: 20px; border-radius: 50px !important; background:#ed3b3b; color:#ffffff; width:82px}.delete:hover {padding: 20px; border-radius: 50px !important; background:#bd0000 !important; color:#ffffff !important; width:82px}.delete:active {padding: 20px; border-radius: 50px !important; background:#bd0000 !important; color:#ffffff !important; width:82px}.delete:focus {padding: 20px; border-radius: 50px !important; background:#bd0000 !important; color:#ffffff !important; width:82px}a.glow:active{text-shadow: 1px 0px 20px #00a1ff;}a.glow_red:active{text-shadow: 1px 0px 20px #ff0000;}a.glow_green:active{text-shadow: 1px 0px 20px #00c700;}a.glow_blue_img:active{-webkit-filter: drop-shadow(1px 0px 10px rgba(0, 161, 255, 0.9));filter: drop-shadow(1px 0px 10px rgba(0, 161, 255, 0.9));}a.glow_red_img:active{-webkit-filter: drop-shadow(1px 0px 10px rgba(255, 0, 0, 0.9));filter: drop-shadow(1px 0px 10px rgba(255, 0, 0, 0.9));}@-webkit-keyframes greenPulse {  50% { background-color: #00a1ff; -webkit-box-shadow: 0 0 28px #00a1ff; }}.verde_pulsante {  -webkit-animation-name: greenPulse !important;  -webkit-animation-duration: 2s !important;  -webkit-animation-iteration-count: infinite !important;}.form-control {border-radius: 4px;}#cboxClose {top: 0;left: 0;}#cboxLoadedContent {margin-bottom: 0px !important;}.modal-content {border-radius: 8px !important;}.skin-blue .sidebar a {color: #ffffff;}</style>
+<script type="text/javascript" src="./default_server_files/userfn14.js.descarga"></script>
+<script type="text/javascript">
+
+// Write your client script here, no need to add script tags.
+$(window).on('load', function(){
+	var mipageloader2 = '';
+	if(mipageloader2=='SI'){
+
+		//*** $(".pageloader").fadeOut("slow");
+		$(".pageloader").hide();
+	}
+});
+</script>
+<link rel="shortcut icon" type="image/x-icon" href="http://www.medsyscloud001.byethost18.com/medsysweb/iconmedsyscloud.ico"><link rel="icon" type="image/x-icon" href="http://www.medsyscloud001.byethost18.com/medsysweb/iconmedsyscloud.ico">
+<meta name="generator" content="PHPMaker v2018.0.2">
+</head>
+<body class="skin-blue" dir="ltr" style="height: auto; min-height: 100%;">
+<div class="wrapper ewLayout" style="height: auto; min-height: 100%;">
+	<!-- Main Header -->
+	<header class="main-header">
+		<div class="logo">
+			<!-- Logo //** Note: Only licensed users are allowed to change the logo ** -->
+			<!-- mini logo for sidebar mini 50x50 pixels -->
+			<span class="logo-mini"></span>
+			<!-- logo for regular state and mobile devices -->
+			<span class="logo-lg"><img src="./default_server_files/phpmkrlogo2018.png" alt=""></span>
+		</div>
+		<!-- Header Navbar -->
+		<nav class="navbar navbar-static-top" role="navigation">
+			<!-- Sidebar toggle button-->
+			<a href="http://www.medsyscloud001.byethost18.com/medsysweb/login.php#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+				<span class="sr-only">Toggle navigation</span>
+			</a>
+			<!-- Navbar custom menu (on right) -->
+			<div class="navbar-custom-menu">
+				<ul class="nav navbar-nav"><li class="solo_dentro" style="background:#444;"><a href="http://www.medsyscloud001.byethost18.com/medsysweb/login.php#" onclick="window.location.href=&#39;pacienteslist.php?cmd=resetall&#39;" data-toggle="control-sidebar" style="width:50px; padding: 0px !important;" align="center">
+		<div class="tooltip_d" style="padding: 15px;">
+			<i class="fa fa-users" align="center"></i>
+			<span class="tooltiptext_d" style="top: 120% !important;">Pacientes</span>
+		</div></a>
+	</li>
+	<li class="solo_dentro" style="background:#4caf50;"><a href="http://www.medsyscloud001.byethost18.com/medsysweb/login.php#" onclick="window.location.href=&#39;CustomView3list.php&#39;" data-toggle="control-sidebar" style="width:50px; padding: 0px !important;" align="center">
+		<div class="tooltip_d" style="padding: 15px;">
+			<i class="fa fa-coffee" align="center"></i>
+			<span class="tooltiptext_d" style="top: 120% !important;">En espera</span>
+		</div></a>
+	</li>
+	<li class="solo_dentro" style="background:#963d97;"><a href="http://www.medsyscloud001.byethost18.com/medsysweb/login.php#" onclick="window.location.href=&#39;calendario.php&#39;" data-toggle="control-sidebar" style="width:50px; padding: 0px !important;" align="center">
+		<div class="tooltip_d" style="padding: 15px;">
+			<i class="fa fa-calendar-alt" align="center"></i>
+			<span class="tooltiptext_d" style="top: 120% !important;">Calendario</span>
+		</div></a>
+	</li>
+	<li class="solo_dentro" style="background:#ed3b3b;"><a href="http://www.medsyscloud001.byethost18.com/medsysweb/login.php#" onclick="window.location.href=&#39;usuarioslist.php&#39;" data-toggle="control-sidebar" style="width:50px; padding: 0px !important;" align="center">
+		<div class="tooltip_d" style="padding: 15px;">
+			<i class="fa fa-cog fa-spin" align="center"></i>
+			<span class="tooltiptext_d" style="top: 120% !important;">Configuración</span>
+		</div></a>
+	</li><li><a href="http://www.medsyscloud001.byethost18.com/medsysweb/login.php">Iniciar Sesión</a></li></ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Left side column, contains the logo and sidebar -->
+	<aside class="main-sidebar">
+		<!-- Sidebar -->
+		<section class="sidebar">
+		<!-- Sidebar menu -->
+<script type="text/javascript">ewVar.menu = {"items":null,"followLink":true,"accordion":true};</script><div class="ewVertical" id="ewMenu">
+<ul class="sidebar-menu tree" data-widget="tree" data-follow-link="true" data-accordion="true">
+
+
+
+</ul>
+</div>
+		<!-- /.sidebar-menu -->
+		</section>
+		<!-- /.sidebar -->
+	</aside>
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper" style="min-height: 836px;">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>Iniciar Sesión <small></small></h1>
+			<ul class="breadcrumb ewBreadcrumbs"><li id="ewBreadcrumb1"><a href="http://www.medsyscloud001.byethost18.com/medsysweb/index.php" title="" class="ewHome" data-original-title="Inicio"><span data-phrase="HomePage" class="glyphicon glyphicon-home ewIcon" data-caption="Inicio"></span></a></li><li id="ewBreadcrumb2" class="active"><span id="ewPageCaption">Iniciar Sesión</span></li></ul>		</section>
+		<!-- Main content -->
+		<section class="content">
+<script type="text/javascript">
+
+// Write your client script here, no need to add script tags.
+</script>
+<script type="text/javascript">
+var flogin = new ew_Form("flogin");
+
+// Validate function
+flogin.Validate = function()
+{
+	var fobj = this.Form;
+	if (!this.ValidateRequired)
+		return true; // Ignore validation
+	if (!ew_HasValue(fobj.username))
+		return this.OnError(fobj.username, ewLanguage.Phrase("EnterUid"));
+	if (!ew_HasValue(fobj.password))
+		return this.OnError(fobj.password, ewLanguage.Phrase("EnterPwd"));
+
+	// Call Form Custom Validate event
+	if (!this.Form_CustomValidate(fobj)) return false;
+	return true;
+}
+
+// Form_CustomValidate function
+flogin.Form_CustomValidate = 
+ function(fobj) { // DO NOT CHANGE THIS LINE!
+
+ 	// Your custom validation code here, return false if invalid.
+ 	return true;
+ }
+
+// Use JavaScript validation or not
+flogin.ValidateRequired = true;
+</script>
+<style>
+    .main-sidebar {
+        width: 0px;
+    }
+
+    .content-wrapper, .main-footer {
+        margin-left: 0px;
+    }
+.ewForm:not(.ewListForm):not(.ewPagerForm){
+    margin: auto !important;
+}
+h1, .h1 {visibility: hidden;}
+.btn-primary {background-color: #51a41f;border-color: #51a41f;}
+.login-box, .register-box {width: 360px;margin: auto;}
+.content-header {display: none;}
+</style>
+<br><br><div align="center" style="max-width:100%"><div style="max-width:320px"><img src="./default_server_files/login.jpg" width="100%" title="login" alt="login"></div></div><div class="ewMessageDialog"></div><form name="flogin" id="flogin" class="ewForm ewLoginForm" action="http://www.medsyscloud001.byethost18.com/medsysweb/login.php" method="post">
+<input type="hidden" name="token" value="Jgbd8qWqGRG5UilFdlCa9Q..">
+<div class="login-box ewLoginBox">
+<div class="login-box-body">
+<p class="login-box-msg">Iniciar Sesión</p>
+	<div class="form-group">
+		<div><input type="text" name="username" id="username" class="form-control ewControl" value="" placeholder="Usuario"></div>
+	</div>
+	<div class="form-group">
+		<div><input type="password" name="password" id="password" class="form-control ewControl" placeholder="Contraseña"></div>
+	</div>
+	<div class="checkbox">
+		<label for="rememberme"><input type="checkbox" name="type" id="rememberme" value="a">Recordar mis datos en este dispositivo</label>
+	</div>
+	<button class="btn btn-primary ewButton" name="btnsubmit" id="btnsubmit" type="submit">Iniciar Sesión</button>
+<p>&nbsp;</p>
+</div>
+</div>
+</form>
+<script type="text/javascript">
+flogin.Init();
+</script>
+<div align="center" style="max-width:100%"><div style="max-width:320px"><img src="./default_server_files/pie_login.jpg" width="100%" title="login" alt="login"></div></div><div align="center" style="max-width:100%"><div style="max-width:320px; text-align: justify;"><span style="font-weight:bold;color: red;">Consejo:</span><span> Para el correcto funcionamiento de MedsysCloud y todas sus características, le recomendamos utilizar el navegador Google Chrome actualizado y una señal fuerte de Internet.</span></div></div><script type="text/javascript">
+
+// Write your startup script here
+// document.write("page loaded");
+//*** $(document).ready(function() {
+//*** $('#rememberme').prop('checked', true);
+//*** });
+
+</script>
+				</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
+	<!-- Main Footer -->
+	<footer class="main-footer">
+		<!-- To the right -->
+		<div class="pull-right hidden-xs"></div>
+		<!-- Default to the left --><!-- ** Note: Only licensed users are allowed to change the copyright statement. ** -->
+		<div class="ewFooterText">©2020 MedsysCloud Ltd. All rights reserved.</div>
+	</footer>
+	<style>
+	.nav>li>a {padding: 15px 15px;}
+	.glyphicon-user {top: 2px;}
+</style>
+<style>.solo_dentro {display: none !important;}.navbar-custom-menu>.navbar-nav>li {display: none !important;}</style><script type="text/html" class="ewJsTemplate" data-name="myControlSidebar" data-method="appendTo" data-target=".navbar-custom-menu .nav" data-seq="-4" data-jsv-tmpl="jsvTmpl">
+	<li class="solo_dentro" style="background:#444;"><a href="#" onclick="window.location.href='pacienteslist.php?cmd=resetall'" data-toggle="control-sidebar" style="width:50px; padding: 0px !important;" align="center">
+		<div class="tooltip_d" style="padding: 15px;">
+			<i class="fa fa-users" align="center"></i>
+			<span class="tooltiptext_d" style="top: 120% !important;">Pacientes</span>
+		</div></a>
+	</li>
+	<li class="solo_dentro" style="background:#4caf50;"><a href="#" onclick="window.location.href='CustomView3list.php'" data-toggle="control-sidebar" style="width:50px; padding: 0px !important;" align="center">
+		<div class="tooltip_d" style="padding: 15px;">
+			<i class="fa fa-coffee" align="center"></i>
+			<span class="tooltiptext_d" style="top: 120% !important;">En espera</span>
+		</div></a>
+	</li>
+	<li class="solo_dentro" style="background:#963d97;"><a href="#" onclick="window.location.href='calendario.php'" data-toggle="control-sidebar" style="width:50px; padding: 0px !important;" align="center">
+		<div class="tooltip_d" style="padding: 15px;">
+			<i class="fa fa-calendar-alt" align="center"></i>
+			<span class="tooltiptext_d" style="top: 120% !important;">Calendario</span>
+		</div></a>
+	</li>
+	<li class="solo_dentro" style="background:#ed3b3b;"><a href="#" onclick="window.location.href='usuarioslist.php'" data-toggle="control-sidebar" style="width:50px; padding: 0px !important;" align="center">
+		<div class="tooltip_d" style="padding: 15px;">
+			<i class="fa fa-cog fa-spin" align="center"></i>
+			<span class="tooltiptext_d" style="top: 120% !important;">Configuración</span>
+		</div></a>
+	</li>
+ </script>
+</div>
+<!-- ./wrapper -->
+<script type="text/html" class="ewJsTemplate" data-name="menu" data-data="menu" data-target="#ewMenu" data-jsv-tmpl="jsvTmpl">
+<ul class="sidebar-menu" data-widget="tree" data-follow-link="{{:followLink}}" data-accordion="{{:accordion}}">
+{{include tmpl="#menu"/}}
+</ul>
+</script>
+<script type="text/html" id="menu" data-jsv-tmpl="jsvTmpl">
+{{if items}}
+	{{for items}}
+		<li id="{{:id}}" name="{{:name}}" class="{{if isHeader}}header{{else}}{{if items}}treeview{{/if}}{{if active}} active current{{/if}}{{if open}} menu-open{{/if}}{{/if}}">
+			{{if isHeader}}
+				{{if icon}}<i class="{{:icon}}"></i>{{/if}}
+				<span>{{:text}}</span>
+				{{if label}}
+				<span class="pull-right-container">
+					{{:label}}
+				</span>
+				{{/if}}
+			{{else}}
+			<a href="{{:href}}"{{if target}} target="{{:target}}"{{/if}}{{if attrs}}{{:attrs}}{{/if}}>
+				{{if icon}}<i class="{{:icon}}"></i>{{/if}}
+				<span>{{:text}}</span>
+				{{if items}}
+				<span class="pull-right-container">
+					<i class="fa fa-angle-left pull-right"></i>
+					{{if label}}
+						<span>{{:label}}</span>
+					{{/if}}
+				</span>
+				{{else}}
+					{{if label}}
+						<span class="pull-right-container">
+							{{:label}}
+						</span>
+					{{/if}}
+				{{/if}}
+			</a>
+			{{/if}}
+			{{if items}}
+			<ul class="treeview-menu"{{if open}} style="display: block;"{{/if}}>
+				{{include tmpl="#menu"/}}
+			</ul>
+			{{/if}}
+		</li>
+	{{/for}}
+{{/if}}
+</script>
+<script type="text/html" class="ewJsTemplate" data-name="languages" data-data="languages" data-method="prependTo" data-target=".navbar-custom-menu .nav" data-jsv-tmpl="jsvTmpl">
+{{for languages}}<li{{if selected}} class="active"{{/if}}><a href="#" class="ewTooltip" title="{{>desc}}" onclick="ew_SetLanguage(this);" data-language="{{:id}}">{{:id}}</a></li>{{/for}}</script>
+<script type="text/html" class="ewJsTemplate" data-name="login" data-data="login" data-method="appendTo" data-target=".navbar-custom-menu .nav" data-jsv-tmpl="jsvTmpl">
+{{if isLoggedIn}}
+<li class="dropdown user user-menu">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+	</a>
+	<ul class="dropdown-menu">
+		<!--<li class="user-header"></li>-->
+		<li class="user-body">
+			<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;{{:currentUserName}}</p>
+		</li>
+		<li class="user-footer">
+			{{if canChangePassword}}
+			<div class="pull-left">
+				<a class="btn btn-default btn-flat" href="{{:changePasswordUrl}}">{{:changePasswordText}}</a>
+			</div>
+			{{/if}}
+			{{if canLogout}}
+			<div class="pull-right">
+				<a class="btn btn-default btn-flat" href="{{:logoutUrl}}">{{:logoutText}}</a>
+			</div>
+			{{/if}}
+		</li>
+	</ul>
+<li>
+{{else}}
+	{{if canLogin}}
+<li><a href="{{:loginUrl}}">{{:loginText}}</a></li>
+	{{/if}}
+{{/if}}
+</script>
+<script type="text/javascript">
+ew_RenderJsTemplates();
+</script>
+<!-- modal dialog -->
+<div id="ewModalDialog" class="modal" role="dialog" aria-hidden="true" data-backdrop="static"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title"></h4></div><div class="modal-body"></div><div class="modal-footer"></div></div></div></div>
+<!-- modal lookup dialog -->
+<div id="ewModalLookupDialog" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title"></h4></div><div class="modal-body"></div><div class="modal-footer"></div></div></div></div>
+<!-- add option dialog -->
+<div id="ewAddOptDialog" class="modal" role="dialog" aria-hidden="true" data-backdrop="static"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title"></h4></div><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">Guardar</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancelar</button></div></div></div></div>
+<!-- message box -->
+<div id="ewMsgBox" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton" data-dismiss="modal">Aceptar</button></div></div></div></div>
+<!-- prompt -->
+<div id="ewPrompt" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton">Aceptar</button><button type="button" class="btn btn-default ewButton" data-dismiss="modal">Cancelar</button></div></div></div></div>
+<!-- session timer -->
+<div id="ewTimer" class="modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-primary ewButton" data-dismiss="modal">Aceptar</button></div></div></div></div>
+<!-- tooltip -->
+<div id="ewTooltip"></div>
+<script type="text/javascript">
+jQuery.get("phpjs/userevt14.js");
+</script>
+<script type="text/javascript">
+
+// Write your global startup script here
+// document.write("page loaded");
+
+$("#ewMobileMenu a.navbar-brand").html('<img src="phpimages/phpmkrlogo2018.png" alt="">');
+$('.ewFilterOption').hide();
+
+//******* $('.ewFooterText').hide();
+//*** DESABILITAR AUTOLENADO DE FORUMLARIOS (USAR SOLO 1 DE ESTAS LINEAS)
+
+$(document).on('focus',':input',function(){$( this ).attr( 'autocomplete', 'off' );});
+
+//*** DESABILITAR AUTOLENADO DE FORUMLARIOS
+$(document).ready(function() {
+	var tipo_pagina2 = 'noview';
+	var misonidos3 = '';
+
+	//alert (tipo_pagina2);
+	if (tipo_pagina2=='view'){
+
+		//alert("entramos");
+		if (misonidos3=="SI"){
+			$('<audio id="chatAudio"><source src="phpimages/sonidos/notify.mp3" type="audio/mpeg"><source src="phpimages/sonidos/notify.wav" type="audio/wav"><source src="phpimages/sonidos/notify.ogg" type="audio/ogg"></audio>').appendTo('body');
+			$('#chatAudio')[0].play();
+		}
+	}
+
+	//***** EVITA SALIDA ACCIDENTAL DE PAGIAN MODAL
+	document.getElementById("ewModalDialog").setAttribute("data-backdrop", "static");
+	document.getElementById("ewAddOptDialog").setAttribute("data-backdrop", "static");
+
+	//**********************************
+	//***** ESCONDE MENU LATERAL
+
+	var miexperto2 = '';
+	if(miexperto2=='SI'){
+		$("body").addClass("sidebar-mini sidebar-collapse");
+	}
+
+	//***** ESCONDE MENU LATERAL
+});
+</script>
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button type="button" id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><span style="border-radius: 10px !important; text-indent: 12px !important; width: auto !important; height: 20px !important; padding: 0px 8px !important; text-align: center !important; vertical-align: middle !important; font: bold 11px / 20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important; color: rgb(255, 255, 255) !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIGZpbGw9IiNFNjAwMjMiPjwvY2lyY2xlPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgNkMwIDguNTYxNSAxLjYwNTUgMTAuNzQ4NSAzLjg2NSAxMS42MDlDMy44MSAxMS4xNDA1IDMuNzUxNSAxMC4zNjggMy44Nzc1IDkuODI2QzMuOTg2IDkuMzYgNC41NzggNi44NTcgNC41NzggNi44NTdDNC41NzggNi44NTcgNC4zOTk1IDYuNDk5NSA0LjM5OTUgNS45N0M0LjM5OTUgNS4xNCA0Ljg4MDUgNC41MiA1LjQ4IDQuNTJDNS45OSA0LjUyIDYuMjM2IDQuOTAyNSA2LjIzNiA1LjM2MUM2LjIzNiA1Ljg3MzUgNS45MDk1IDYuNjM5NSA1Ljc0MSA3LjM1QzUuNjAwNSA3Ljk0NDUgNi4wMzk1IDguNDI5NSA2LjYyNTUgOC40Mjk1QzcuNjg3IDguNDI5NSA4LjUwMzUgNy4zMSA4LjUwMzUgNS42OTRDOC41MDM1IDQuMjYzNSA3LjQ3NTUgMy4yNjQgNi4wMDggMy4yNjRDNC4zMDkgMy4yNjQgMy4zMTE1IDQuNTM4NSAzLjMxMTUgNS44NTZDMy4zMTE1IDYuMzY5NSAzLjUwOSA2LjkxOTUgMy43NTYgNy4yMTlDMy44MDQ1IDcuMjc4NSAzLjgxMiA3LjMzIDMuNzk3NSA3LjM5MDVDMy43NTIgNy41Nzk1IDMuNjUxIDcuOTg1IDMuNjMxNSA4LjA2OEMzLjYwNSA4LjE3NyAzLjU0NSA4LjIwMDUgMy40MzE1IDguMTQ3NUMyLjY4NTUgNy44MDA1IDIuMjE5NSA2LjcxIDIuMjE5NSA1LjgzNEMyLjIxOTUgMy45NDk1IDMuNTg4IDIuMjE5NSA2LjE2NTUgMi4yMTk1QzguMjM3NSAyLjIxOTUgOS44NDggMy42OTYgOS44NDggNS42NjlDOS44NDggNy43Mjc1IDguNTUwNSA5LjM4NDUgNi43NDg1IDkuMzg0NUM2LjE0MyA5LjM4NDUgNS41NzQ1IDkuMDY5NSA1LjM3OTUgOC42OThDNS4zNzk1IDguNjk4IDUuMDggOS44MzkgNS4wMDc1IDEwLjExOEM0Ljg2NjUgMTAuNjYgNC40NzU1IDExLjM0NiA0LjIzMyAxMS43MzU1QzQuNzkyIDExLjkwNzUgNS4zODUgMTIgNiAxMkM5LjMxMzUgMTIgMTIgOS4zMTM1IDEyIDZDMTIgMi42ODY1IDkuMzEzNSAwIDYgMEMyLjY4NjUgMCAwIDIuNjg2NSAwIDZaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=&quot;) 4px 50% / 12px 12px no-repeat rgb(230, 0, 35) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; -webkit-font-smoothing: antialiased !important; top: 113px; left: 810px;">Guardar</span><span style="border-radius: 12px; width: 24px !important; height: 24px !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMTEiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuOCI+PC9jaXJjbGU+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTUuMDgzNCA0LjU4MzMzSDEzLjMzMzRWNS43NDk5OUgxNS4wODM0QzE1LjcyNjggNS43NDk5OSAxNi4yNSA2LjI3MzI0IDE2LjI1IDYuOTE2NjZWOC42NjY2NkgxNy40MTY3VjYuOTE2NjZDMTcuNDE2NyA1LjYyOTgzIDE2LjM3MDIgNC41ODMzMyAxNS4wODM0IDQuNTgzMzNaTTE2LjI1IDE1LjA4MzNDMTYuMjUgMTUuNzI2NyAxNS43MjY4IDE2LjI1IDE1LjA4MzQgMTYuMjVIMTMuMzMzNFYxNy40MTY3SDE1LjA4MzRDMTYuMzcwMiAxNy40MTY3IDE3LjQxNjcgMTYuMzcwMiAxNy40MTY3IDE1LjA4MzNWMTMuMzMzM0gxNi4yNVYxNS4wODMzWk01Ljc1MDA0IDE1LjA4MzNWMTMuMzMzM0g0LjU4MzM3VjE1LjA4MzNDNC41ODMzNyAxNi4zNzAyIDUuNjI5ODcgMTcuNDE2NyA2LjkxNjcxIDE3LjQxNjdIOC42NjY3MVYxNi4yNUg2LjkxNjcxQzYuMjczMjkgMTYuMjUgNS43NTAwNCAxNS43MjY3IDUuNzUwMDQgMTUuMDgzM1pNNS43NTAwNCA2LjkxNjY2QzUuNzUwMDQgNi4yNzMyNCA2LjI3MzI5IDUuNzQ5OTkgNi45MTY3MSA1Ljc0OTk5SDguNjY2NzFWNC41ODMzM0g2LjkxNjcxQzUuNjI5ODcgNC41ODMzMyA0LjU4MzM3IDUuNjI5ODMgNC41ODMzNyA2LjkxNjY2VjguNjY2NjZINS43NTAwNFY2LjkxNjY2Wk05LjI1MDA0IDEwLjcwODNDOS4yNTAwNCA5LjkwNDQ5IDkuOTA0NTQgOS4yNDk5OSAxMC43MDg0IDkuMjQ5OTlDMTEuNTEyMiA5LjI0OTk5IDEyLjE2NjcgOS45MDQ0OSAxMi4xNjY3IDEwLjcwODNDMTIuMTY2NyAxMS41MTIyIDExLjUxMjIgMTIuMTY2NyAxMC43MDg0IDEyLjE2NjdDOS45MDQ1NCAxMi4xNjY3IDkuMjUwMDQgMTEuNTEyMiA5LjI1MDA0IDEwLjcwODNaTTEzLjYyNSAxNC41QzEzLjg0OSAxNC41IDE0LjA3MyAxNC40MTQ4IDE0LjI0NCAxNC4yNDM5QzE0LjU4NTIgMTMuOTAyMSAxNC41ODUyIDEzLjM0NzkgMTQuMjQ0IDEzLjAwNjFMMTMuMDcwMyAxMS44MzNDMTMuMjM0MiAxMS40OTA2IDEzLjMzMzQgMTEuMTEyNiAxMy4zMzM0IDEwLjcwODNDMTMuMzMzNCA5LjI2MTA4IDEyLjE1NTYgOC4wODMzMyAxMC43MDg0IDguMDgzMzNDOS4yNjExMiA4LjA4MzMzIDguMDgzMzcgOS4yNjEwOCA4LjA4MzM3IDEwLjcwODNDOC4wODMzNyAxMi4xNTU2IDkuMjYxMTIgMTMuMzMzMyAxMC43MDg0IDEzLjMzMzNDMTEuMTEyNiAxMy4zMzMzIDExLjQ5MDYgMTMuMjM0MiAxMS44MzMgMTMuMDcwMkwxMy4wMDYxIDE0LjI0MzlDMTMuMTc3IDE0LjQxNDggMTMuNDAxIDE0LjUgMTMuNjI1IDE0LjVaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=&quot;) 50% 50% / 24px 24px no-repeat rgba(0, 0, 0, 0.4) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; top: 113px; left: 1088px;"></span></body></html>
