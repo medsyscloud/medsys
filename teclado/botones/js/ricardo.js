@@ -448,7 +448,7 @@
 					break;					
 
 					default:
-					location= 'http://www.medsyscloud001.byethost18.com/medsysweb/login.php';
+					location= 'http://www.medsyscloud010.byethost9.com/medsysweb/login.php';
 					//location= 'teclado/default_server.html';
 					break;
 				}
