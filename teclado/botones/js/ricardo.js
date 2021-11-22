@@ -443,6 +443,10 @@
 					location= 'http://www.medsyscloud009.byethost4.com/medsysweb/login.php';
 					break;
 
+					case "10":
+					location= 'http://www.medsyscloud010.byethost9.com/medsysweb/login.php';
+					break;					
+
 					default:
 					location= 'http://www.medsyscloud001.byethost18.com/medsysweb/login.php';
 					//location= 'teclado/default_server.html';
