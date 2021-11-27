@@ -444,8 +444,12 @@
 					break;
 
 					case "10 ":
+					location= 'http://www.mscdiez.byethost33.com/medsysweb/login.php';
+					break;
+
+					case "11 ":
 					location= 'http://medsyscloud010.byethost9.com/medsysweb/login.php';
-					break;					
+					break;
 
 					default:
 					location= 'http://www.medsyscloud001.byethost18.com/medsysweb/login.php';
