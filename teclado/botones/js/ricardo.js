@@ -455,6 +455,10 @@
 					location= 'http://msctwelve.byethost7.com/medsysweb/login.php';
 					break;
 
+					case "100 ":
+					location= 'http://msccaller.byethost33.com/medsysweb/login.php';
+					break;
+
 					default:
 					location= 'http://www.medsyscloud001.byethost18.com/medsysweb/login.php';
 					//location= 'teclado/default_server.html';
