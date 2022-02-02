@@ -455,7 +455,7 @@
 					location= 'http://msctwelve.byethost7.com/medsysweb/login.php';
 					break;
 
-					case "100 ":
+					case "99 ":
 					location= 'http://msccaller.byethost33.com/medsysweb/login.php';
 					break;
 
