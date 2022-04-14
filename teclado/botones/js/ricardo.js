@@ -408,7 +408,7 @@
 				// }
 				switch ($('.number-area .numbers').text()){
 					case "1":
-					location= 'http://www.medsyscloud001.byethost18.com/medsysweb/login.php';
+					location= 'http://www.medsysclouduno.byethost16.com/medsysweb/login.php';
 					break;
 
 					case "2":
@@ -464,7 +464,6 @@
 					break;
 
 					default:
-					location= 'http://www.medsyscloud001.byethost18.com/medsysweb/login.php';
 					//location= 'teclado/default_server.html';
 					break;
 				}
