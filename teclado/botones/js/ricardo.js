@@ -408,7 +408,7 @@
 				// }
 				switch ($('.number-area .numbers').text()){
 					case "1":
-					location= 'http://www.medsysclouduno.byethost16.com/medsysweb/login.php';
+					location= 'https://www.medsysclouduno.byethost16.com/medsysweb/login.php';
 					break;
 
 					case "2":
