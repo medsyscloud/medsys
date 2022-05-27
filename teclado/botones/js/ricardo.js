@@ -452,7 +452,7 @@
 					break;
 
 					case "12 ":
-					location= 'https://msctwelve.byethost7.com/medsysweb/login.php';
+					location= 'https://www.mscdoce.byethost7.com/medsysweb/login.php';
 					break;
 
 					case "14 ":
