@@ -459,7 +459,7 @@
 					location= 'https://www.mscfourteen.byethost31.com/medsysweb/login.php';
 					break;
 
-					case "99 ":
+					case "15 ":
 					location= 'https://www.msccaller.byethost33.com/medsysweb/login.php';
 					break;
 
