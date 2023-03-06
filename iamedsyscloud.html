@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo</title>
+	<meta charset="UTF-8">
+	<style>
+		.botones {
+			display: block;
+			width: 200px;
+			height: 30px;
+			margin-bottom: 10px;
+			color: #fff;
+			font-size: 16px;
+			font-weight: bold;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			outline: none;
+		}
+
+		.azul {
+			background-color: #2e86c1;
+		}
+
+		.rojo {
+			background-color: #c12e2e;
+		}
+	</style>
+	<script type="text/javascript">
+		var ventanaMedsysCloud;
+		var ventanaPoe;
+
+		function abrirVentana(url, nombreVentana) {
+			if (nombreVentana === 'MedsysCloud' && ventanaMedsysCloud && !ventanaMedsysCloud.closed) {
+				ventanaMedsysCloud.focus();
+			} else if (nombreVentana === 'Poe' && ventanaPoe && !ventanaPoe.closed) {
+				ventanaPoe.focus();
+			} else {
+				var ventana = window.open(url, nombreVentana, 'width=800,height=600,top=' + (screen.height - 600) / 2 + ',left=' + (screen.width - 800) / 2);
+				if (nombreVentana === 'MedsysCloud') {
+					ventanaMedsysCloud = ventana;
+				} else if (nombreVentana === 'Poe') {
+					ventanaPoe = ventana;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<button class="botones azul" onclick="abrirVentana('https://chat.openai.com', 'Poe')">Abrir ChatGPT</button>
+	<button class="botones rojo" onclick="abrirVentana('https://www.poe.com', 'ChatGPT')">Abrir Poe</button>
+</body>
+</html>
+
+
+
