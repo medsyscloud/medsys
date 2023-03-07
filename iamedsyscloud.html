@@ -4,6 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
 
     <title>IA MedsysCloud</title>
 
@@ -2611,8 +2612,6 @@ body{
                             <div id="mwai-chat-6407409f24b19" class="mwai-chat mwai-chatgpt">
                                 <div class="mwai-content">
                                     <div class="mwai-conversation">
-                                        <div class="mwai-reply mwai-ai"><span class="mwai-name"><div class="mwai-name-text">MedsysCloud Bot:</div></span><span class="mwai-text">Hi! What tech problem do you need help with?</span>
-                                        </div>
                                     </div>
                                     <div class="mwai-input">
                                         <textarea rows="1" placeholder="Type your message here..."></textarea>
@@ -2659,7 +2658,7 @@ body{
           let button = document.querySelector('#mwai-chat-6407409f24b19 .mwai-input button');
           let buttonSpan = button.querySelector('span');
           if (memorizedChat.length < 2) {
-            buttonSpan.innerHTML = 'Send';
+            buttonSpan.innerHTML = 'Enviar Consulta';
           }
           else if (!input.value.length) {
             button.classList.add('mwai-clear');
@@ -2667,7 +2666,7 @@ body{
           }
           else {
             button.classList.remove('mwai-clear');
-            buttonSpan.innerHTML = 'Send';
+            buttonSpan.innerHTML = 'Enviar Consulta';
           }
         }
 
