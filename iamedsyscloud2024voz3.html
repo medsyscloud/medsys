@@ -5577,6 +5577,13 @@ width: 200px;
     var recognition = new webkitSpeechRecognition();
     recognition.lang = "es-ES";
 
+        recognition.onresult = function(event) {
+      var text = event.results[0][0].transcript;
+      inputField.value = text;
+      sendBtn.click();
+      navigator.clipboard.writeText(''); // limpia el portapapeles
+    }
+
         startSpeechRecognition = function() {
       recognition.start();
     }
