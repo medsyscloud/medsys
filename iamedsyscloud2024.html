@@ -5468,26 +5468,30 @@ width: 200px;
     </div>
     <div class="mwai-input">
       <textarea rows="1" placeholder="Escriba su consulta aqui..."></textarea>
-      <button class="button-36" role="button" onclick="sendMessage()"><span>Send</span></button>
+      <button class="button-36" role="button" onclick="sendMessage()"><span>Enviar consulta</span></button>
       <button id="pegar-btn" style="background-color: red;" onclick="pasteAndSend()">Pegar y Enviar</button>
     </div>
   </div>
 </div>
 
 <script>
-    window.onload = function() {
-        var pasteBtn = document.getElementById('pegar-btn');
-        var sendBtn = document.querySelector('.mwai-input button');
-        var inputField = document.querySelector('.mwai-input textarea');
+  window.onload = function() {
+    var pasteBtn = document.getElementById('pegar-btn');
+    var sendBtn = document.querySelector('.mwai-input button');
+    var inputField = document.querySelector('.mwai-input textarea');
 
-        pasteBtn.addEventListener('click', function() {
-            navigator.clipboard.readText().then(function(text) {
-                inputField.value = text;
-                sendBtn.click();
-            });
-        });
-    }
+    pasteBtn.addEventListener('click', function() {
+      navigator.clipboard.readText().then(function(text) {
+        if (text.trim() !== '') {
+          inputField.value = text;
+          sendBtn.click();
+          navigator.clipboard.writeText(''); // limpia el portapapeles
+        }
+      });
+    });
+  }
 </script>
+
 
 
 
