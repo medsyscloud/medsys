@@ -5587,15 +5587,12 @@ width: 200px;
       <button class="button-39" id="voice-btn" onclick="speakResponse()"><i class="fas fa-volume-up" style="font-size:16px"></i></button>
       <button class="button-39" id="stop-btn" onclick="stopSpeech()"><i class="fas fa-stop" style="font-size:16px"></i></button>
       <button class="button-38" id="voz-btn" onclick="startSpeechRecognition()"><i class="fas fa-microphone" style="font-size:16px"></i></button>
-      <button class="button-38" id="microfono2" onclick="startSpeechRecognitionAndSendMessage()"><i class="fas fa-microphone-alt" style="font-size:16px"></i></button>
     </div>
     </div>
   </div>
 </div>
 
 <script>
-  var isSpeaking = false;
-  
   function speakResponse() {
     var replyEl = document.querySelector('#mwai-chat-640898ad5452f .mwai-conversation').lastChild.querySelector('.mwai-text');
 
@@ -5608,6 +5605,7 @@ width: 200px;
         });
         window.speechSynthesis.speak(msg);
       }
+      startSpeechRecognition();
   
   }
 
@@ -5615,141 +5613,45 @@ width: 200px;
     window.speechSynthesis.cancel();
     isSpeaking = false;
   }
+  
+  window.onload = function() {
+    var pasteBtn = document.getElementById('pegar-btn');
+    var sendBtn = document.querySelector('.mwai-input button');
+    var inputField = document.querySelector('.mwai-input textarea');
 
-  function startSpeechRecognitionAndSendMessage() {
+    var speechBtn = document.getElementById('voz-btn');
     var recognition = new webkitSpeechRecognition();
     recognition.lang = "es-ES";
 
     recognition.onresult = function(event) {
       var text = event.results[0][0].transcript;
-      var inputField = document.querySelector('.mwai-input textarea');
       inputField.value = text;
-      var sendBtn = document.querySelector('.mwai-input button');
       sendBtn.click();
       navigator.clipboard.writeText(''); // limpia el portapapeles
-      recognition.stop();
-      speakResponse();
-      startSpeechRecognitionAndSendMessage();
     }
 
-    recognition.start();
-  }
+    startSpeechRecognition = function() {
+      recognition.start();
+    }
 
-window.onload = function() {
-  var pasteBtn = document.getElementById('pegar-btn');
-  var sendBtn = document.querySelector('.mwai-input button');
-  var inputField = document.querySelector('.mwai-input textarea');
-  var speechBtn = document.getElementById('voz-btn');
-  var recognition = new webkitSpeechRecognition();
-  recognition.lang = "es-ES";
-  var sendByVoiceBtn = document.getElementById('microfono2');
-
-  var isSpeaking = false;
-
-  function sendMessage() {
-    var text = inputField.value.trim();
-    if (text !== '') {
-      var conversationEl = document.querySelector('.mwai-conversation');
-      var replyEl = document.createElement('div');
-      replyEl.className = 'mwai-reply mwai-user';
-      replyEl.innerHTML = '<span class="mwai-name">Usuario</span><div class="mwai-text">' + text + '</div>';
-      conversationEl.appendChild(replyEl);
-      inputField.value = '';
-      sendBtn.disabled = true;
-
-      fetch('/chatbot', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          query: text
-        })
-      })
-      .then(function(response) {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Error en la respuesta del servidor');
+    pasteBtn.addEventListener('click', function() {
+      navigator.clipboard.readText().then(function(text) {
+        if (text.trim() !== '') {
+          inputField.value = text;
+          sendBtn.click();
+          navigator.clipboard.writeText(''); // limpia el portapapeles
         }
-      })
-      .then(function(data) {
-        var conversationEl = document.querySelector('.mwai-conversation');
-        var replyEl = document.createElement('div');
-        replyEl.className = 'mwai-reply mwai-ai';
-        replyEl.innerHTML = '<span class="mwai-name">Chatbot</span><div class="mwai-text">' + data.response + '</div>';
-        conversationEl.appendChild(replyEl);
-        isSpeaking = true;
-        speakResponse();
-        sendBtn.disabled = false;
-        inputField.focus();
-      })
-      .catch(function(error) {
-        console.error(error);
-        isSpeaking = true;
-        speakResponse();
-        sendBtn.disabled = false;
-        inputField.focus();
       });
-    }
-  }
-
-  function speakResponse() {
-    if (!isSpeaking) {
-      var replyEl = document.querySelector('#mwai-chat-640898ad5452f .mwai-conversation').lastChild.querySelector('.mwai-text');
-      if (replyEl) {
-        var msg = new SpeechSynthesisUtterance();
-        msg.text = replyEl.textContent;
-        var voices = window.speechSynthesis.getVoices();
-        msg.voice = voices.find(function(voice) {
-          return voice.lang === 'es-MX'; // cambia 'es-MX' por el código del idioma y dialecto de la voz que quieres usar
-        });
-        msg.onend = function() {
-          isSpeaking = false;
-          startSpeechRecognition();
-        };
-        window.speechSynthesis.speak(msg);
+    });
+    
+    var conversationEl = document.querySelector('.mwai-conversation');
+    conversationEl.addEventListener('DOMNodeInserted', function(event) {
+      if (event.target.classList.contains('mwai-reply') && event.target.querySelector('.mwai-name')) {
+        //speakResponse();
       }
-    }
+    });
   }
-
-  function stopSpeech() {
-    window.speechSynthesis.cancel();
-    isSpeaking = false;
-  }
-
-  function startSpeechRecognition() {
-    recognition.start();
-  }
-
-  recognition.onresult = function(event) {
-    var text = event.results[0][0].transcript;
-    inputField.value = text;
-    sendMessage();
-    navigator.clipboard.writeText(''); // limpia el portapapeles
-  }
-
-  sendByVoiceBtn.addEventListener('click', function() {
-    recognition.start();
-    sendByVoiceBtn.style.backgroundColor = "#dc3545";
-    sendByVoiceBtn.style.borderColor = "#dc3545";
-  });
-
-  recognition2.onresult = function(event) {
-    var text = event.results[0][0].transcript;
-    inputField.value = text;
-    sendBtn.click();
-    navigator.clipboard.writeText(''); // limpia el portapapeles
-  }
-
-  var conversationEl = document.querySelector('.mwai-conversation');
-  conversationEl.addEventListener('DOMNodeInserted', function(event) {
-    if (event.target.classList.contains('mwai-reply') && event.target.querySelector('.mwai-name')) {
-      speakResponse();
-      recognition2.start();
-    }
-  });
-}
+</script>
 
 
 			<script>
