@@ -5457,35 +5457,36 @@ width: 200px;
 
 
 <div id="mwai-chat-640898ad5452f" class="mwai-chat mwai-chatgpt">
-    <div class="mwai-content">
-        <div class="mwai-conversation">
-            <div class="mwai-reply mwai-ai">
-                <span class="mwai-name">
-                    <div class="mwai-copy-button-one"></div>
-                    <div class="mwai-copy-button-two"></div>
-                </span>
-            </div>
-        </div>
-        <div class="mwai-input">
-            <textarea rows="1" placeholder="Escriba su consulta aqui..."></textarea>
-            <button class="button-36" role="button">Send</button>
-            <button id="pegar-btn" style="background-color: red;">Pegar</button>
-        </div>
+  <div class="mwai-content">
+    <div class="mwai-conversation">
+      <div class="mwai-reply mwai-ai">
+        <span class="mwai-name">
+          <div class="mwai-copy-button-one"></div>
+          <div class="mwai-copy-button-two"></div>
+        </span>
+      </div>
     </div>
+    <div class="mwai-input">
+      <textarea rows="1" placeholder="Escriba su consulta aqui..."></textarea>
+      <button class="button-36" role="button" onclick="sendMessage()"><span>Send</span></button>
+      <button id="pegar-btn" style="background-color: red;" onclick="pasteAndSend()">Pegar y Enviar</button>
+    </div>
+  </div>
 </div>
 
 <script>
-    const pegarBtn = document.getElementById("pegar-btn");
-    const input = document.querySelector(".mwai-input textarea");
+    window.onload = function() {
+        var pasteBtn = document.getElementById('pegar-btn');
+        var sendBtn = document.querySelector('.mwai-input button');
+        var inputField = document.querySelector('.mwai-input textarea');
 
-    pegarBtn.addEventListener("click", async () => {
-        try {
-            const clipboardContent = await navigator.clipboard.readText();
-            input.value = clipboardContent;
-        } catch (err) {
-            console.error("Error al leer el portapapeles: ", err);
-        }
-    });
+        pasteBtn.addEventListener('click', function() {
+            navigator.clipboard.readText().then(function(text) {
+                inputField.value = text;
+                sendBtn.click();
+            });
+        });
+    }
 </script>
 
 
