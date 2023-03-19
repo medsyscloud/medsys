@@ -5593,6 +5593,20 @@ width: 200px;
 </div>
 
 <script>
+
+function pasteAndSend() {
+  navigator.clipboard.readText().then(function(text) {
+    if (text.trim() !== '') {
+      var inputField = document.querySelector('.mwai-input textarea');
+      var sendBtn = document.querySelector('.mwai-input button');
+      inputField.value = text;
+      sendBtn.click();
+      navigator.clipboard.writeText(''); // limpia el portapapeles
+    }
+  });
+}
+
+    
   function speakResponse() {
     var replyEl = document.querySelector('#mwai-chat-640898ad5452f .mwai-conversation').lastChild.querySelector('.mwai-text');
 
