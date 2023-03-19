@@ -5640,9 +5640,16 @@ pasteBtn.addEventListener('click', function() {
       inputField.value = text;
       sendBtn.click();
       navigator.clipboard.writeText(''); // limpia el portapapeles
+      console.log('Texto pegado correctamente:', text);
     }
   });
 });
+
+sendBtn.addEventListener('click', function() {
+  console.log('Botón "enviar" presionado');
+  speakResponse();
+});
+
     
     var conversationEl = document.querySelector('.mwai-conversation');
     conversationEl.addEventListener('DOMNodeInserted', function(event) {
