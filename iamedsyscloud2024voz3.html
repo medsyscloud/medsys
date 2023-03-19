@@ -5633,15 +5633,16 @@ width: 200px;
       recognition.start();
     }
 
-    pasteBtn.addEventListener('click', function() {
-      navigator.clipboard.readText().then(function(text) {
-        if (text.trim() !== '') {
-          inputField.value = text;
-          sendBtn.click();
-          navigator.clipboard.writeText(''); // limpia el portapapeles
-        }
-      });
-    });
+pasteBtn.addEventListener('click', function() {
+  navigator.clipboard.readText().then(function(text) {
+    if (text.trim() !== '') {
+      var inputField = document.querySelector('.mwai-input textarea');
+      inputField.value = text;
+      sendBtn.click();
+      navigator.clipboard.writeText(''); // limpia el portapapeles
+    }
+  });
+});
     
     var conversationEl = document.querySelector('.mwai-conversation');
     conversationEl.addEventListener('DOMNodeInserted', function(event) {
