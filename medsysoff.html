@@ -5577,9 +5577,9 @@ width: 200px;
             const usuariosArray = usuarios.replace(/\r/g, '').trim().split("\n");
 
             if (usuariosArray.includes(nombre)) {
-              document.getElementById("resultado").innerText = "Usuario sí existe";
+              document.getElementById("mwai-chat-640898ad5452f").style.visibility = "visible";
             } else {
-              window.open("https://www.poe.com", "_self");
+              document.getElementById("mwai-chat-640898ad5452f").style.visibility = "hidden";
             }
           }
         };
