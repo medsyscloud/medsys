@@ -5558,6 +5558,37 @@ width: 200px;
 
 
 <body>
+
+    <script>
+      function obtenerParametro(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      function verificarUsuario() {
+        const nombre = obtenerParametro("nombre");
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "usuarios.txt", true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            const usuarios = xhr.responseText;
+
+            const usuariosArray = usuarios.replace(/\r/g, '').trim().split("\n");
+
+            if (usuariosArray.includes(nombre)) {
+              document.getElementById("resultado").innerText = "Usuario sí existe";
+            } else {
+              window.location.href = "https://www.google.com";
+            }
+          }
+        };
+        xhr.send();
+      }
+
+      verificarUsuario();
+    </script>
+    
 	<div class="menu_ia">
       <img class="logo_ia" src="medsyscloud_ia_logo.png" alt="Logo de PHP">
     </div>
