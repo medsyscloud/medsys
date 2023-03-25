@@ -5559,7 +5559,6 @@ width: 200px;
 
 <body>
 
-    <iframe id="poe" style="display:none"></iframe>
     <script>
       function obtenerParametro(param) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -5580,8 +5579,7 @@ width: 200px;
             if (usuariosArray.includes(nombre)) {
               document.getElementById("resultado").innerText = "Usuario sí existe";
             } else {
-              document.getElementById("poe").src = "https://www.poe.com";
-              document.getElementById("poe").style.display = "block";
+              window.open("https://www.poe.com", "_self");
             }
           }
         };
