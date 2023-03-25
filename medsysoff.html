@@ -5552,10 +5552,8 @@ width: 200px;
 }
 
 </style>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-
-
 
 <body>
 
@@ -5580,6 +5578,8 @@ width: 200px;
               document.getElementById("mwai-chat-640898ad5452f").style.visibility = "visible";
             } else {
               document.getElementById("mwai-chat-640898ad5452f").style.visibility = "hidden";
+              document.getElementById("alertaon").style.visibility = "hidden";
+              document.getElementById("alertaoff").style.visibility = "visible";
             }
           }
         };
@@ -5595,93 +5595,98 @@ width: 200px;
 
 	<div style="margin-right: auto; margin-left: auto; padding-left: 20px; padding-right: 20px; padding-top: 20px;">
 
-	        <div class="alert_ia">
+	        <div id="alertaon" class="alert_ia" style="visibility: visible;">
                 <span class="closebtn_ia" onclick="this.parentElement.style.display='none';">&times;</span>
                 <strong>Advertencia:</strong> La Inteligencia Artificial de MedsysCloud.com se encuentra en fase de pruebas y factibilidad.
             </div>
 
+            <div id="alertaoff" class="alert_ia"  style="visibility: hidden;">
+                <span class="closebtn_ia" onclick="this.parentElement.style.display='none';">&times;</span>
+                <strong>Advertencia:</strong> Su suscripcion ha caducado.
+            </div>
 
-<div id="mwai-chat-640898ad5452f" class="mwai-chat mwai-chatgpt">
-  <div class="mwai-content">
-    <div class="mwai-conversation">
-      <div class="mwai-reply mwai-ai">
-        <span class="mwai-name">
-          <div class="mwai-copy-button-one"></div>
-          <div class="mwai-copy-button-two"></div>
-        </span>
-      </div>
-    </div>
-    <div class="mwai-input">
-      <textarea rows="1" placeholder="Escriba su consulta aqui..."></textarea>
-      <button class="button-36" role="button" onclick="sendMessage()"><span>Enviar consulta</span></button>
-      <button class="button-37" id="pegar-btn" onclick="pasteAndSend()"><i class="fas fa-clipboard" style="font-size:20px"></i></button>
-      <button class="button-39" id="voice-btn" onclick="speakResponse()"><i class="fas fa-volume-up" style="font-size:16px"></i></button>
-      <button class="button-39" id="stop-btn" onclick="stopSpeech()"><i class="fas fa-stop" style="font-size:16px"></i></button>
-      <button class="button-38" id="voz-btn" onclick="startSpeechRecognition()"><i class="fas fa-microphone" style="font-size:16px"></i></button>
-    </div>
-    </div>
-  </div>
-</div>
 
-<script>
-  function speakResponse() {
-    var replyEl = document.querySelector('#mwai-chat-640898ad5452f .mwai-conversation').lastChild.querySelector('.mwai-text');
+            <div id="mwai-chat-640898ad5452f" class="mwai-chat mwai-chatgpt">
+              <div class="mwai-content">
+                <div class="mwai-conversation">
+                  <div class="mwai-reply mwai-ai">
+                    <span class="mwai-name">
+                      <div class="mwai-copy-button-one"></div>
+                      <div class="mwai-copy-button-two"></div>
+                    </span>
+                  </div>
+                </div>
+                <div class="mwai-input">
+                  <textarea rows="1" placeholder="Escriba su consulta aqui..."></textarea>
+                  <button class="button-36" role="button" onclick="sendMessage()"><span>Enviar consulta</span></button>
+                  <button class="button-37" id="pegar-btn" onclick="pasteAndSend()"><i class="fas fa-clipboard" style="font-size:20px"></i></button>
+                  <button class="button-39" id="voice-btn" onclick="speakResponse()"><i class="fas fa-volume-up" style="font-size:16px"></i></button>
+                  <button class="button-39" id="stop-btn" onclick="stopSpeech()"><i class="fas fa-stop" style="font-size:16px"></i></button>
+                  <button class="button-38" id="voz-btn" onclick="startSpeechRecognition()"><i class="fas fa-microphone" style="font-size:16px"></i></button>
+                </div>
+                </div>
+              </div>
+            </div>
 
-      if (replyEl) {
-        var msg = new SpeechSynthesisUtterance();
-        msg.text = replyEl.textContent;
-        var voices = window.speechSynthesis.getVoices();
-        msg.voice = voices.find(function(voice) {
-          return voice.lang === 'es-MX'; // cambia 'es-MX' por el código del idioma y dialecto de la voz que quieres usar
-        });
-        window.speechSynthesis.speak(msg);
-      }
-  
-  }
+            <script>
+              function speakResponse() {
+                var replyEl = document.querySelector('#mwai-chat-640898ad5452f .mwai-conversation').lastChild.querySelector('.mwai-text');
 
-  function stopSpeech() {
-    window.speechSynthesis.cancel();
-    isSpeaking = false;
-  }
-  
-  window.onload = function() {
-    var pasteBtn = document.getElementById('pegar-btn');
-    var sendBtn = document.querySelector('.mwai-input button');
-    var inputField = document.querySelector('.mwai-input textarea');
+                  if (replyEl) {
+                    var msg = new SpeechSynthesisUtterance();
+                    msg.text = replyEl.textContent;
+                    var voices = window.speechSynthesis.getVoices();
+                    msg.voice = voices.find(function(voice) {
+                      return voice.lang === 'es-MX'; // cambia 'es-MX' por el código del idioma y dialecto de la voz que quieres usar
+                    });
+                    window.speechSynthesis.speak(msg);
+                  }
+              
+              }
 
-    var speechBtn = document.getElementById('voz-btn');
-    var recognition = new webkitSpeechRecognition();
-    recognition.lang = "es-ES";
+              function stopSpeech() {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+              }
+              
+              window.onload = function() {
+                var pasteBtn = document.getElementById('pegar-btn');
+                var sendBtn = document.querySelector('.mwai-input button');
+                var inputField = document.querySelector('.mwai-input textarea');
 
-    recognition.onresult = function(event) {
-      var text = event.results[0][0].transcript;
-      inputField.value = text;
-      sendBtn.click();
-      navigator.clipboard.writeText(''); // limpia el portapapeles
-    }
+                var speechBtn = document.getElementById('voz-btn');
+                var recognition = new webkitSpeechRecognition();
+                recognition.lang = "es-ES";
 
-    startSpeechRecognition = function() {
-      recognition.start();
-    }
+                recognition.onresult = function(event) {
+                  var text = event.results[0][0].transcript;
+                  inputField.value = text;
+                  sendBtn.click();
+                  navigator.clipboard.writeText(''); // limpia el portapapeles
+                }
 
-    pasteBtn.addEventListener('click', function() {
-      navigator.clipboard.readText().then(function(text) {
-        if (text.trim() !== '') {
-          inputField.value = text;
-          sendBtn.click();
-          navigator.clipboard.writeText(''); // limpia el portapapeles
-        }
-      });
-    });
-    
-    var conversationEl = document.querySelector('.mwai-conversation');
-    conversationEl.addEventListener('DOMNodeInserted', function(event) {
-      if (event.target.classList.contains('mwai-reply') && event.target.querySelector('.mwai-name')) {
-        //speakResponse();
-      }
-    });
-  }
-</script>
+                startSpeechRecognition = function() {
+                  recognition.start();
+                }
+
+                pasteBtn.addEventListener('click', function() {
+                  navigator.clipboard.readText().then(function(text) {
+                    if (text.trim() !== '') {
+                      inputField.value = text;
+                      sendBtn.click();
+                      navigator.clipboard.writeText(''); // limpia el portapapeles
+                    }
+                  });
+                });
+                
+                var conversationEl = document.querySelector('.mwai-conversation');
+                conversationEl.addEventListener('DOMNodeInserted', function(event) {
+                  if (event.target.classList.contains('mwai-reply') && event.target.querySelector('.mwai-name')) {
+                    //speakResponse();
+                  }
+                });
+              }
+            </script>
 
 
 			<script>
@@ -6083,9 +6088,9 @@ width: 200px;
 			})();
 			</script>
 
-                <script>
-                    document.addEventListener('contextmenu', event => event.preventDefault());
-                </script>
+            <script>
+                document.addEventListener('contextmenu', event => event.preventDefault());
+            </script>
 	</div>
 </body>
 
