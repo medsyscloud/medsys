@@ -2,4 +2,6 @@ User-agent: *
 Disallow: /iamedsyscloud.html
 Disallow: /medsysoff.html
 Disallow: /iamedsyscloudspeak.html
+Disallow: /iamedsyscloudspeakdoctor.html
+Disallow: /iamedsyscloudspeaktotal.html
 Disallow: /usuarios.txt
