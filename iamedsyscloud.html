@@ -5646,15 +5646,15 @@ body::-webkit-scrollbar-thumb {
       recognition.start();
     }
 
-    pasteBtn.addEventListener('click', function() {
-      navigator.clipboard.readText().then(function(text) {
-        if (text.trim() !== '') {
-          inputField.value = text;
-          sendBtn.click();
-          navigator.clipboard.writeText(''); // limpia el portapapeles
-        }
-      });
-    });
+    // pasteBtn.addEventListener('click', function() {
+    //   navigator.clipboard.readText().then(function(text) {
+    //     if (text.trim() !== '') {
+    //       inputField.value = text;
+    //       sendBtn.click();
+    //       navigator.clipboard.writeText(''); // limpia el portapapeles
+    //     }
+    //   });
+    // });
     
     var conversationEl = document.querySelector('.mwai-conversation');
     conversationEl.addEventListener('DOMNodeInserted', function(event) {
@@ -5671,8 +5671,8 @@ body::-webkit-scrollbar-thumb {
 				let isWindow = false;
 				let isDebugMode = true;
 				let isFullscreen = false;
-                let restNonce = '6d7b674edd';
-				let apiURL = 'https://bigtechquestion.com/wp-json/ai-chatbot/v1/chat';
+                let restNonce = 'bcee6067e0';
+                let apiURL = 'https://msctwelve.byethost7.com/virus/wp-json/ai-chatbot/v1/chat';
                 //let apiURL = 'https://constitutionus.com/wp-json/ai-chatbot/v1/chat';
 				let isCasuallyFineTuned = false;
 				let textCompliance = '';
