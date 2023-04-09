@@ -19,7 +19,7 @@
 
 </head>
   <body style="background: black">
-    <h1 id="resultado" style="color:white">Cargando...</h1>
+    <h1 id="resultado" style="color:white">...</h1>
     <iframe id="medsyscloud" src="https://www.medsyscloud.com/iamedsyscloud.html" style="display:none">
       Your browser does not support the iFrame html elements.
     </iframe>
@@ -44,7 +44,9 @@
               document.getElementById("resultado").innerText = "";
               document.getElementById("medsyscloud").style.display = "block";
             } else {
-              document.getElementById("resultado").innerText = "Su suscripción ha terminado.";
+              document.getElementById("resultado").innerText = "Su suscripción ha terminado. Contactese con su proveedor de MedsysCloud";
+              document.getElementById("resultado").style.cssText = "font-family: Arial; font-size: 12px; color: yellow;";
+
             }
           }
         };
