@@ -19,7 +19,10 @@
 
 </head>
   <body style="background: black">
-    <!-- <h1 id="resultado">Cargando...</h1> -->
+    <h1 id="resultado" style="color:white"></h1>
+    <iframe id="medsyscloud" src="https://www.medsyscloud.com/iamedsyscloud.html" style="display:none">
+      Your browser does not support the iFrame html elements.
+    </iframe>
     <script>
       function obtenerParametro(param) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -38,9 +41,12 @@
             const usuariosArray = usuarios.replace(/\r/g, '').trim().split("\n");
 
             if (usuariosArray.includes(nombre)) {
-              document.getElementById("resultado").innerText = "Usuario sí existe";
+              document.getElementById("resultado").innerText = "";
+              document.getElementById("medsyscloud").style.display = "block";
             } else {
-              window.location.href = "https://www.medsyscloud.com";
+              document.getElementById("resultado").innerText = "Su suscripción ha terminado. Contactese con su proveedor de MedsysCloud";
+              document.getElementById("resultado").style.cssText = "font-family: Arial; font-size: 12px; color: yellow;";
+
             }
           }
         };
@@ -49,8 +55,8 @@
 
       verificarUsuario();
     </script>
-    <iframe src="https://www.medsyscloud.com/iamedsyscloud.html">
-      Your browser does not support the iFrame html elements.
-    </iframe>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
   </body>
 </html>
