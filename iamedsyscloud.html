@@ -5645,16 +5645,16 @@ body::-webkit-scrollbar-thumb {
     startSpeechRecognition = function() {
       recognition.start();
     }
-
-    pasteBtn.addEventListener('click', function() {
-      navigator.clipboard.readText().then(function(text) {
-        if (text.trim() !== '') {
-          inputField.value = text;
-          sendBtn.click();
-          navigator.clipboard.writeText(''); // limpia el portapapeles
-        }
-      });
-    });
+    // ELIMINAMOS EL EVENTO PASTE CLIPBOARD
+    // pasteBtn.addEventListener('click', function() {
+    //   navigator.clipboard.readText().then(function(text) {
+    //     if (text.trim() !== '') {
+    //       inputField.value = text;
+    //       sendBtn.click();
+    //       navigator.clipboard.writeText(''); // limpia el portapapeles
+    //     }
+    //   });
+    // });
     
     var conversationEl = document.querySelector('.mwai-conversation');
     conversationEl.addEventListener('DOMNodeInserted', function(event) {
