@@ -4,4 +4,5 @@ Disallow: /medsysoff.html
 Disallow: /iamedsyscloudspeak.html
 Disallow: /iamedsyscloudspeakdoctor.html
 Disallow: /iamedsyscloudspeaktotal.html
+Disallow: /iamedsyscloudparlante.html
 Disallow: /usuarios.txt
