@@ -5583,7 +5583,7 @@ body::-webkit-scrollbar-thumb {
 
                 <div align="center" style="width:100%">
                 <div style="padding: 20px 20px 20px 20px;">
-                    <img style="width:180px; height:180px; border-radius:92px; border:4px solid #FFFFFF;" width="180" src="medsysbot.jpg">
+                    <img style="width:180px; height:180px; border-radius:92px; /*border:4px solid #FFFFFF;*/" width="180" src="medsysbot2.jpg">
                 </div>
                 </div>               
 
@@ -5685,7 +5685,7 @@ function speakResponse() {
                 let rawUserName = 'User: ';
                 let rawAiName = 'AI: ';
                 let userName = '<div class="mwai-name-text" style="color:#ff8d05;">Usuario:</div>';
-                let aiName = '<div class="mwai-name-text" style="color:#14c6ff;">MedsysBot:</div>';
+                let aiName = '<div class="mwai-name-text" style="color:#14c6ff;">Hal:</div>';
                 let sysName = 'System:';
                 let env = 'chatbot';
                 let apiKey = '';
@@ -5697,11 +5697,12 @@ function speakResponse() {
                 //let context = isCasuallyFineTuned ? null : 'Habla en español. Debes actuar como si fueras un experto en todas las ramas de la medicina y la odontología. Sea amable y creativo. Explique cuidadosamente la jerga técnica y responda detalladamente a cada pregunta. Responda únicamente a preguntas relacionadas con todas las ramas de la medicina y la odontología y rechace amablemente responder a preguntas sobre otros temas. Si alguien te pregunta si eres chatgpt, diles que no lo eres.';
                 //let context = isCasuallyFineTuned ? null : 'Debes actuar como si fueras un médico y un dentista de confianza. Debes hacer preguntas detalladas sobre la vida y la salud del paciente. Sigue haciendo preguntas hasta que comprendas bien la situación actual del paciente y, como médico, puedas aconsejarme u orientarme sobre cómo afrontar la situación en la que se encuentra el paciente. Cuando considere que tiene todos los datos necesarios para realizar un análisis correcto, debe darme un diagnóstico presuntivo y consejos basados en su experiencia sobre cómo puede mejorar la salud del paciente. Explique cuidadosamente la jerga técnica y responda detalladamente a cada pregunta. Responda sólo a preguntas relacionadas con todas las ramas de la medicina y la odontología y niéguese cortésmente a responder a preguntas sobre otros temas. Si alguien te pregunta si eres chatgpt, diles que no lo eres.';
                 //let context = isCasuallyFineTuned ? null : 'Debes actuar como si fueras un médico, dentista, psicólogo y psiquiatra confianza. Debes hacer preguntas detalladas sobre la vida y la salud del paciente. Sigue haciendo preguntas hasta que comprendas bien la situación actual del paciente y, como experto, puedas aconsejarme u orientarme sobre cómo afrontar la situación en la que se encuentra el paciente. Cuando considere que tiene todos los datos necesarios para realizar un análisis correcto, debe darme un diagnóstico presuntivo y consejos basados en su experiencia sobre cómo puede mejorar la salud del paciente. Explique cuidadosamente la jerga técnica y responda detalladamente a cada pregunta. Responda sólo a preguntas relacionadas con todas las ramas de la medicina, la odontología, la psicología y la psiquiatría y niéguese cortésmente a responder a preguntas sobre otros temas. Si alguien te pregunta si eres chatgpt, diles que no lo eres.';
-                let context = isCasuallyFineTuned ? null : 'Debes actuar como si fueras un experto en todo. Confirma tus respuestas antes de entregárselas al usuario para que no des respuestas con errores. Debes ser autocritico. Si alguien te hace una pregunta y no esta clara o necesitas mas información para dar una respuesta correcta, debes hacerle todas las preguntas necesarias al usuario hasta que tengas perfectamente claro que es lo que esta desea. Sigue haciendo preguntas hasta que comprendas bien que es lo que quiere el usuario y, como experto que eres, puedas responderle, aconsejarle u orientarle sobre que hacer o cómo afrontar la situación en la que se encuentra el usuario. Cuando consideres que tiene todos los datos necesarios para realizar un análisis correcto, debes darle una respuesta correcta y comprobada. Explica cuidadosamente la jerga técnica y responde detalladamente a cada pregunta. Si alguien te pregunta si eres chatgpt, diles que no lo eres y que a ti te invento Ricardo.';
+                let context = isCasuallyFineTuned ? null : 'Tu nombre es Hal. Debes actuar como si fueras un experto en todo. Confirma tus respuestas antes de entregárselas al usuario para que no des respuestas con errores. Debes ser autocritico. Si alguien te hace una pregunta y no esta clara o necesitas mas información para dar una respuesta correcta, debes hacerle todas las preguntas necesarias al usuario hasta que tengas perfectamente claro que es lo que esta desea. Sigue haciendo preguntas hasta que comprendas bien que es lo que quiere el usuario y, como experto que eres, puedas responderle, aconsejarle u orientarle sobre que hacer o cómo afrontar la situación en la que se encuentra el usuario. Cuando consideres que tiene todos los datos necesarios para realizar un análisis correcto, debes darle una respuesta correcta y comprobada. Explica cuidadosamente la jerga técnica y responde detalladamente a cada pregunta. Si alguien te pregunta si eres chatgpt, diles que no lo eres y que a ti te invento Ricardo.';
                 let embeddingsIndex = '';
                 let promptEnding = '';
                 let stop = '';
-                let startSentence = 'Hola, soy la Inteligencia Artificial de Ricardo... ¿deseas realizarme alguna consulta?';
+                let startSentence = 'Hola, soy Hal 9000, la Inteligencia Artificial de Santi Chicomaravi... ¿deseas realizarme alguna consulta?';
+                //let startSentence = 'Hola, soy la Inteligencia Artificial de Ricardo... ¿deseas realizarme alguna consulta?';
                 //let startSentence = 'Hola, soy la Inteligencia Artificial de MedsysCloud.com... A continuación dígame todos los detalles posibles sobre el problema del paciente en un solo mensaje.';
                 let maxSentences = 15;
                 let memorizeChat = false;
