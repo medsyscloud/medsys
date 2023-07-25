@@ -461,7 +461,7 @@
 					break;
 
 					case "15 ":
-					location= 'https://www.msccaller.byethost33.com/medsysweb/login.php';
+					location= 'https://www.msccaller.byethost33.com/medsysweb/';
 					break;
 
 					default:
