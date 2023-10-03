@@ -436,7 +436,7 @@
 					break;
 
 					case "8":
-					location= 'https://www.medsyscloud008.byethost7.com/medsysweb/login.php';
+					location= 'https://www.medsyscloud002.byethost8.com/medsysweb08/login.php';
 					break;
 
 					case "9":
