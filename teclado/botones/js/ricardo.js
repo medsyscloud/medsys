@@ -412,7 +412,7 @@
 					break;
 
 					case "2":
-					location= 'https://www.medsyscloud002.byethost8.com/medsysweb/login.php';
+					location= 'https://www.medsyscloud002.byethost8.com/medsysweb02/login.php';
 					break;
 
 					case "3":
@@ -428,7 +428,7 @@
 					break;
 
 					case "6":
-					location= 'https://www.medsyscloud006.byethost6.com/medsysweb/login.php';
+					location= 'https://www.medsyscloud002.byethost8.com/medsysweb06/login.php';
 					break;
 
 					case "7":
@@ -453,7 +453,6 @@
 
 					case "12 ":
 					location= 'https://www.medsyscloud002.byethost8.com/medsysweb12/login.php';
-					//location= 'https://www.mscdoce.byethost7.com/medsysweb/login.php';
 					break;
 
 					case "14 ":
