@@ -4,9 +4,7 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>HAL 9000</title>
-
-<link rel="shortcut icon" href="iconhal.png" type="image/x-icon">
+<title>MedsysCloud BOT</title>
 
 <style id="wpr-usedcss">pre code.hljs{
     display:block;
@@ -5573,7 +5571,7 @@ body::-webkit-scrollbar-thumb {
 
 <body>
 	<div class="menu_ia">
-      <img class="logo_ia" src="medsyscloud_ia_logo2.png" alt="Logo de PHP">
+      <img class="logo_ia" src="medsyscloud_ia_logo.png" alt="Logo de PHP">
     </div>
 
 	<div style="margin-right: auto; margin-left: auto; padding-left: 20px; padding-right: 20px; padding-top: 20px;">
@@ -5585,9 +5583,9 @@ body::-webkit-scrollbar-thumb {
 
                 <div align="center" style="width:100%">
                 <div style="padding: 20px 20px 20px 20px;">
-                    <img style="width:180px; height:180px; border-radius:92px; /*border:4px solid #FFFFFF;*/" width="180" src="medsysbot2.jpg">
+                    <img style="width:180px; height:180px; border-radius:92px; border:4px solid #FFFFFF;" width="180" src="medsysbot.jpg">
                 </div>
-                </div>               
+                </div>            
 
 
 <div id="mwai-chat-64297eb546d62" class="mwai-chat mwai-chatgpt">
@@ -5604,28 +5602,30 @@ body::-webkit-scrollbar-thumb {
     <div class="mwai-input" style="margin-bottom: 20px;">
       <textarea rows="1" placeholder="Escriba su consulta aqui..."></textarea>
       <button class="button-36" role="button" onclick="sendMessage()"><span>Enviar consulta</span></button>
-      <button class="button-37" id="pegar-btn" onclick="pasteAndSend()"><i class="fas fa-clipboard" style="font-size:20px"></i></button>
+      <!-- <button class="button-37" id="pegar-btn" onclick="pasteAndSend()"><i class="fas fa-clipboard" style="font-size:20px"></i></button> -->
       <button class="button-39" id="voice-btn" onclick="speakResponse()"><i class="fas fa-volume-up" style="font-size:16px"></i></button>
-      <button class="button-39" id="stop-btn" onclick="stopSpeech()"><i class="fas fa-stop" style="font-size:16px"></i></button>
-      <button class="button-38" id="voz-btn" onclick="startSpeechRecognition()"><i class="fas fa-microphone" style="font-size:16px"></i></button>
+      <button class="button-38" id="stop-btn" onclick="stopSpeech()"><i class="fas fa-stop" style="font-size:16px"></i></button>
+      <!-- <button class="button-38" id="voz-btn" onclick="startSpeechRecognition()"><i class="fas fa-microphone" style="font-size:16px"></i></button> -->
     </div>
     </div>
   </div>
 </div>
 
 <script>
-function speakResponse() {
-  var lastReplyEl = document.querySelector('#mwai-chat-64297eb546d62 .mwai-conversation').lastChild.querySelector('.mwai-reply.mwai-ai .mwai-text');
-  if (lastReplyEl) {
-    var msg = new SpeechSynthesisUtterance();
-    msg.text = lastReplyEl.textContent;
-    var voices = window.speechSynthesis.getVoices();
-    msg.voice = voices.find(function(voice) {
-      return voice.lang === 'es-MX'; // cambia 'es-MX' por el código del idioma y dialecto de la voz que quieres usar
-    });
-    window.speechSynthesis.speak(msg);
+  function speakResponse() {
+    var replyEl = document.querySelector('#mwai-chat-64297eb546d62 .mwai-conversation').lastChild.querySelector('.mwai-text');
+
+      if (replyEl) {
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = replyEl.textContent;
+        var voices = window.speechSynthesis.getVoices();
+        msg.voice = voices.find(function(voice) {
+          return voice.lang === 'es-MX'; // cambia 'es-MX' por el código del idioma y dialecto de la voz que quieres usar
+        });
+        window.speechSynthesis.speak(msg);
+      }
+  
   }
-}
 
   function stopSpeech() {
     window.speechSynthesis.cancel();
@@ -5649,31 +5649,29 @@ function speakResponse() {
     }
 
     startSpeechRecognition = function() {
-         window.speechSynthesis.cancel();
-        isSpeaking = false;
-        recognition.start();
+      recognition.start();
     }
-
-    pasteBtn.addEventListener('click', function() {
-      navigator.clipboard.readText().then(function(text) {
-        if (text.trim() !== '') {
-          inputField.value = text;
-          sendBtn.click();
-          navigator.clipboard.writeText(''); // limpia el portapapeles
-        }
-      });
-    });
+    // ELIMINAMOS EL EVENTO PASTE CLIPBOARD
+    // pasteBtn.addEventListener('click', function() {
+    //   navigator.clipboard.readText().then(function(text) {
+    //     if (text.trim() !== '') {
+    //       inputField.value = text;
+    //       sendBtn.click();
+    //       navigator.clipboard.writeText(''); // limpia el portapapeles
+    //     }
+    //   });
+    // });
     
     var conversationEl = document.querySelector('.mwai-conversation');
     conversationEl.addEventListener('DOMNodeInserted', function(event) {
       if (event.target.classList.contains('mwai-reply') && event.target.querySelector('.mwai-name')) {
-        speakResponse();
+        //speakResponse();
       }
     });
   }
 </script>
 
-            <!-- VERSION NORMAL CON LOS BOTONES DE CLIPBOARD Y MICROFONO PROBADO -->
+
 
             <script>
             (function () {
@@ -5681,13 +5679,13 @@ function speakResponse() {
                 let isWindow = false;
                 let isDebugMode = true;
                 let isFullscreen = false;
-                let restNonce = 'c9a3024b82';
-                let apiURL = 'https://medsyscloud.thats.im/virus/wp-json/ai-chatbot/v1/chat';
+                let restNonce = '1cbb702ec4';
+                let apiURL = 'https://medsys.000.pe/virus/wp-json/ai-chatbot/v1/chat';
                 let isCasuallyFineTuned = false;
                 let rawUserName = 'User: ';
                 let rawAiName = 'AI: ';
                 let userName = '<div class="mwai-name-text" style="color:#ff8d05;">Usuario:</div>';
-                let aiName = '<div class="mwai-name-text" style="color:#14c6ff;">Hal:</div>';
+                let aiName = '<div class="mwai-name-text" style="color:#14c6ff;">MedsysBot:</div>';
                 let sysName = 'System:';
                 let env = 'chatbot';
                 let apiKey = '';
@@ -5695,16 +5693,16 @@ function speakResponse() {
                 let session = 'N/A';
                 let mode = 'chat';
                 let model = 'gpt-3.5-turbo';
-                //let model = 'gpt-4';
                 //let context = isCasuallyFineTuned ? null : 'Habla en español. Debes actuar como si fueras un experto en todas las ramas de la medicina y la odontología. Sea amable y creativo. Explique cuidadosamente la jerga técnica y responda detalladamente a cada pregunta. Responda únicamente a preguntas relacionadas con todas las ramas de la medicina y la odontología y rechace amablemente responder a preguntas sobre otros temas. Si alguien te pregunta si eres chatgpt, diles que no lo eres.';
                 //let context = isCasuallyFineTuned ? null : 'Debes actuar como si fueras un médico y un dentista de confianza. Debes hacer preguntas detalladas sobre la vida y la salud del paciente. Sigue haciendo preguntas hasta que comprendas bien la situación actual del paciente y, como médico, puedas aconsejarme u orientarme sobre cómo afrontar la situación en la que se encuentra el paciente. Cuando considere que tiene todos los datos necesarios para realizar un análisis correcto, debe darme un diagnóstico presuntivo y consejos basados en su experiencia sobre cómo puede mejorar la salud del paciente. Explique cuidadosamente la jerga técnica y responda detalladamente a cada pregunta. Responda sólo a preguntas relacionadas con todas las ramas de la medicina y la odontología y niéguese cortésmente a responder a preguntas sobre otros temas. Si alguien te pregunta si eres chatgpt, diles que no lo eres.';
                 //let context = isCasuallyFineTuned ? null : 'Debes actuar como si fueras un médico, dentista, psicólogo y psiquiatra confianza. Debes hacer preguntas detalladas sobre la vida y la salud del paciente. Sigue haciendo preguntas hasta que comprendas bien la situación actual del paciente y, como experto, puedas aconsejarme u orientarme sobre cómo afrontar la situación en la que se encuentra el paciente. Cuando considere que tiene todos los datos necesarios para realizar un análisis correcto, debe darme un diagnóstico presuntivo y consejos basados en su experiencia sobre cómo puede mejorar la salud del paciente. Explique cuidadosamente la jerga técnica y responda detalladamente a cada pregunta. Responda sólo a preguntas relacionadas con todas las ramas de la medicina, la odontología, la psicología y la psiquiatría y niéguese cortésmente a responder a preguntas sobre otros temas. Si alguien te pregunta si eres chatgpt, diles que no lo eres.';
-                let context = isCasuallyFineTuned ? null : 'Tu nombre es Hal. Debes actuar como si fueras un experto en todo. Confirma tus respuestas antes de entregárselas al usuario para que no des respuestas con errores. Debes ser autocritico. Si alguien te hace una pregunta y no esta clara o necesitas mas información para dar una respuesta correcta, debes hacerle todas las preguntas necesarias al usuario hasta que tengas perfectamente claro que es lo que esta desea. Sigue haciendo preguntas hasta que comprendas bien que es lo que quiere el usuario y, como experto que eres, puedas responderle, aconsejarle u orientarle sobre que hacer o cómo afrontar la situación en la que se encuentra el usuario. Cuando consideres que tiene todos los datos necesarios para realizar un análisis correcto, debes darle una respuesta correcta y comprobada. Explica cuidadosamente la jerga técnica y responde detalladamente a cada pregunta. Si alguien te pregunta si eres chatgpt, diles que no lo eres y que a ti te invento Ricardo.';
+                // let context = isCasuallyFineTuned ? null : 'Actúa como MedsysBot, un médico altamente calificado especializado en medicina y odontologia, comprometido con el apoyo a las personas para que enfrenten y superen sus problemas de salud. Tendrás una conversación prolongada con un nuevo paciente. Debes hacer preguntas detalladas sobre la vida y la salud del paciente. Sigue haciendo preguntas hasta que comprendas bien la situación actual del paciente y, como experto, puedas aconsejar y orientar al paciente sobre cómo afrontar la situación en la que se encuentra. Utiliza la escucha activa y muestra empatía y comprensión. Aplica técnicas y enfoques terapéuticos para guiarlo hacia una comprensión más profunda y resolución de sus problemas de salud. A lo largo de las conversaciones, haz preguntas para que comprendas el cuador medico comppleto del paciente.Asegúrate de generar resp@stas empáticas, comprensivas sabias y adaptadas al contexto de la situación individual de tu paciente. Recuerda que esta consulta involucra varias conversaciones largas y de múltiples mensajes, así que evita apresurar preguntas, respuestas o conclusiones. Enfócate en un desarrollo adecuado y prolongado de la consulta para lograr resultados efectivos. Comienza dándole la bienvenida a tu consultorio a tu nuevo paciente, hazlo sentir cómodo y pregúntale cuál es su nombre. Ten un lenguaje natural y amigable. Explique cuidadosamente la jerga técnica y responde detalladamente a cada pregunta. Cuando consideres que tienes todos los datos necesarios para realizar un análisis correcto, debes dar un diagnóstico presuntivo y consejos basados en su experiencia sobre cómo puede mejorar la situacion del paciente. Responde sólo a preguntas relacionadas con las ramas de la medicina y la odontología y niégate cortésmente a responder a preguntas sobre otros temas';
+                // let context = isCasuallyFineTuned ? null : 'Actúa como MedsysBot, un médico altamente calificado especializado en medicina y odontologia, comprometido con el apoyo a las personas para que enfrenten y superen sus problemas de salud. Tendrás una conversación prolongada con un nuevo paciente. Debes hacer preguntas detalladas sobre la vida y la salud del paciente. Sigue haciendo preguntas hasta que comprendas bien la situación actual del paciente y, como experto, puedas aconsejar y orientar al paciente sobre cómo afrontar la situación en la que se encuentra. Utiliza la escucha activa y muestra empatía y comprensión. Aplica técnicas y enfoques terapéuticos para guiarlo hacia una comprensión más profunda y resolución de sus problemas de salud. A lo largo de las conversaciones, haz preguntas para que comprendas el cuador medico comppleto del paciente.Asegúrate de generar resp@stas empáticas, comprensivas sabias y adaptadas al contexto de la situación individual de tu paciente. Recuerda que esta consulta involucra varias conversaciones largas y de múltiples mensajes, así que evita apresurar preguntas, respuestas o conclusiones. Enfócate en un desarrollo adecuado y prolongado de la consulta para lograr resultados efectivos. Comienza dándole la bienvenida a tu consultorio a tu nuevo paciente y hazlo sentir cómodo. Ten un lenguaje natural y amigable. Explique cuidadosamente la jerga técnica y responde detalladamente a cada pregunta. Cuando consideres que tienes todos los datos necesarios para realizar un análisis correcto, debes dar un diagnóstico presuntivo y consejos basados en su experiencia sobre cómo puede mejorar la situacion del paciente. Responde sólo a preguntas relacionadas con las ramas de la medicina y la odontología y niégate cortésmente a responder a preguntas sobre otros temas';
+                let context = isCasuallyFineTuned ? null : 'Actúa como MedsysBot, un médico altamente calificado especializado en medicina y odontologia. Tu tarea es dar un diagnostico presuntivo segun la informacion que te proporcionen. Si la informacion que te dan no es suficiente, debes hacer preguntas detalladas hasta que comprendas bien el cuadro médico del paciente y, como experto, puedas aconsejar y orientar al paciente sobre cómo afrontar la situación en la que se encuentra. Cuando consideres que tienes todos los datos necesarios para realizar un análisis correcto, debes dar un diagnóstico presuntivo y consejos basados en su experiencia sobre cómo puede mejorar la situacion del paciente. Segun el diagnostico presuntivo, enumera los nombres genericos de los medicamentos y tratamientos mas utilzados para ese tipo de patologia. Utiliza la escucha activa y muestra empatía y comprensión. Aplica técnicas y enfoques terapéuticos para guiarlo hacia una comprensión más profunda y resolución de sus problemas de salud. Explica cuidadosamente la jerga técnica y responde detalladamente a cada pregunta. Si te hacen una pregunta con respuestas multiples para que selecciones la respuesta correcta, debes explicar porque elegiste una respuesta y ademas debes explicar porque no elegiste cada una de las otras respuestas propuestas. Responde sólo a preguntas relacionadas con las ramas de la medicina y la odontología y niégate cortésmente a responder a preguntas sobre otros temas';               
                 let embeddingsIndex = '';
                 let promptEnding = '';
                 let stop = '';
-                let startSentence = 'Hola, soy Hal 9000, la Inteligencia Artificial de Santi Chicomaravi... ¿deseas realizarme alguna consulta?';
-                //let startSentence = 'Hola, soy la Inteligencia Artificial de Ricardo... ¿deseas realizarme alguna consulta?';
+                let startSentence = 'Hola, soy la Inteligencia Artificial de MedsysCloud.com... ¿deseas realizarme alguna consulta?';
                 //let startSentence = 'Hola, soy la Inteligencia Artificial de MedsysCloud.com... A continuación dígame todos los detalles posibles sobre el problema del paciente en un solo mensaje.';
                 let maxSentences = 15;
                 let memorizeChat = false;
@@ -6118,9 +6116,9 @@ function speakResponse() {
             })();
             </script>
 
-<!--                 <script>
+                <script>
                     document.addEventListener('contextmenu', event => event.preventDefault());
-                </script> -->
+                </script>
 	</div>
 </body>
 
