@@ -5587,16 +5587,35 @@ body::-webkit-scrollbar-thumb {
             <a href="https://medsys.000.pe/medsyscloud/medsysbot3.html" class="button-36" style="display: block; width: 100%; text-align: center; margin-top: 20px;" target="_blank">MedsysBot 3.0</a>
         </div> -->
 
-            <script>
+    <script>
+        var miVentana;
+
         function abrirVentana() {
-            // Especifica las dimensiones y otras propiedades de la ventana
-            var opcionesVentana = "width=450,height=800,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes";
+            // Si la ventana ya está abierta, enfócala
+            if (miVentana && !miVentana.closed) {
+                miVentana.focus();
+            } else {
+                // Calcula el ancho y altura de la ventana
+                var anchoVentana = 450;
 
-            // URL que quieres abrir en la nueva ventana
-            var url = "https://medsys.000.pe/48648368660173153605794032337856218886062931990936/medsysbot3.html";
+                // Calcula la altura de la ventana (alto de la pantalla menos la barra de tareas)
+                var alturaVentana = window.screen.availHeight;
 
-            // Abre la ventana con la URL y las opciones especificadas
-            window.open(url, '_blank', opcionesVentana);
+                // Calcula la posición X para que aparezca a la derecha
+                var posicionX = window.screen.width - anchoVentana;
+
+                // Calcula la posición Y para centrar verticalmente
+                var posicionY = window.screen.height / 2 - alturaVentana / 2;
+
+                // Especifica las dimensiones y posición de la ventana
+                var opcionesVentana = "width=" + anchoVentana + ",height=" + alturaVentana + ",left=" + posicionX + ",top=" + posicionY + ",toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes";
+
+                // URL que quieres abrir en la nueva ventana
+                var url = "https://medsys.000.pe/48648368660173153605794032337856218886062931990936/medsysbot3.html";
+
+                // Abre la ventana con la URL y las opciones especificadas
+                miVentana = window.open(url, '_blank', opcionesVentana);
+            }
         }
     </script>
 
