@@ -5422,7 +5422,7 @@ width: 200px;
   -webkit-user-select: none;
   touch-action: manipulation;
   padding:10px;
-  width: 180px;
+  width: 200px;
   margin-top: 5px;
 }
 
@@ -5583,9 +5583,28 @@ body::-webkit-scrollbar-thumb {
                 </div>
                 </div>            
 
-        <div align="center" style="width: 100%; max-width: 200px; margin: 0 auto;">
+<!--         <div align="center" style="width: 100%; max-width: 200px; margin: 0 auto;">
             <a href="https://medsys.000.pe/medsyscloud/medsysbot3.html" class="button-36" style="display: block; width: 100%; text-align: center; margin-top: 20px;" target="_blank">MedsysBot 3.0</a>
-        </div>
+        </div> -->
+
+            <script>
+        function abrirVentana() {
+            // Especifica las dimensiones y otras propiedades de la ventana
+            var opcionesVentana = "width=450,height=800,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes";
+
+            // URL que quieres abrir en la nueva ventana
+            var url = "https://medsys.000.pe/48648368660173153605794032337856218886062931990936/medsysbot3.html";
+
+            // Abre la ventana con la URL y las opciones especificadas
+            window.open(url, '_blank', opcionesVentana);
+        }
+    </script>
+
+        <div align="center" style="width: 100%; max-width: 200px; margin: 0 auto;">
+                <button class="button-36" onclick="abrirVentana()">MedsysBot 3.0</button>
+        </div>    
+
+
 
                 <script>
                     document.addEventListener('contextmenu', event => event.preventDefault());
