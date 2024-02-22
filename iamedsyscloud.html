@@ -5588,34 +5588,27 @@ body::-webkit-scrollbar-thumb {
         </div> -->
 
     <script>
-        var miVentana;
-
         function abrirVentana() {
-            // Si la ventana ya está abierta, enfócala
-            if (miVentana && !miVentana.closed) {
-                miVentana.focus();
-            } else {
-                // Calcula el ancho y altura de la ventana
-                var anchoVentana = 450;
+            // Calcula el ancho y altura de la ventana
+            var anchoVentana = 450;
 
-                // Calcula la altura de la ventana (alto de la pantalla menos la barra de tareas)
-                var alturaVentana = window.screen.availHeight;
+            // Calcula la altura de la ventana (alto de la pantalla menos la barra de tareas)
+            var alturaVentana = window.screen.availHeight;
 
-                // Calcula la posición X para que aparezca a la derecha
-                var posicionX = window.screen.width - anchoVentana;
+            // Calcula la posición X para que aparezca a la derecha
+            var posicionX = window.screen.width - anchoVentana;
 
-                // Calcula la posición Y para centrar verticalmente
-                var posicionY = window.screen.height / 2 - alturaVentana / 2;
+            // Calcula la posición Y para centrar verticalmente
+            var posicionY = window.screen.height / 2 - alturaVentana / 2;
 
-                // Especifica las dimensiones y posición de la ventana
-                var opcionesVentana = "width=" + anchoVentana + ",height=" + alturaVentana + ",left=" + posicionX + ",top=" + posicionY + ",toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes";
+            // Especifica las dimensiones y posición de la ventana
+            var opcionesVentana = "width=" + anchoVentana + ",height=" + alturaVentana + ",left=" + posicionX + ",top=" + posicionY + ",toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes";
 
-                // URL que quieres abrir en la nueva ventana
-                var url = "https://medsys.000.pe/48648368660173153605794032337856218886062931990936/medsysbot3.html";
+            // URL que quieres abrir en la nueva ventana
+            var url = "https://medsys.000.pe/48648368660173153605794032337856218886062931990936/medsysbot3.html";
 
-                // Abre la ventana con la URL y las opciones especificadas
-                miVentana = window.open(url, '_blank', opcionesVentana);
-            }
+            // Abre la ventana con la URL y las opciones especificadas
+            window.open(url, '_blank', opcionesVentana);
         }
     </script>
 
