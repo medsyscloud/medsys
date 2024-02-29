@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espectro de Sonido</title>
+  <!-- Incluye p5.js desde un CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+  <h1>Espectro de Sonido</h1>
+  
+  <!-- Botón para mostrar el espectro de sonido -->
+  <button onclick="toggleSoundSpectrum()">Mostrar Espectro de Sonido</button>
+  
+  <!-- Canvas donde se mostrará el espectro de sonido -->
+  <div id="soundCanvas"></div>
+  
+  <script>
+    let sound, fft, amplitude;
+    let playing = false;
+
+    function preload() {
+      sound = loadSound('https://responsivevoice.org/responsivevoice/getvoice.php?t=estas%20son%20mis%20primeras%20palabras&tl=es-ES');
+    }
+
+    function setup() {
+      let cnv = createCanvas(400, 100);
+      cnv.parent('soundCanvas');
+      
+      fft = new p5.FFT();
+      amplitude = new p5.Amplitude();
+    }
+
+    function draw() {
+      if (playing) {
+        background(255); // Fondo blanco
+        let spectrum = fft.analyze();
+        
+        // Dibujar el espectro de sonido como barras
+        for (let i = 0; i < spectrum.length; i++) {
+          let amp = spectrum[i];
+          let x = map(i, 0, spectrum.length, 0, width);
+          let h = map(amp, 0, 255, 0, height);
+          fill(0, 255, 255); // Color cyan
+          rect(x, height - h, width / spectrum.length, h);
+        }
+      }
+    }
+
+    function toggleSoundSpectrum() {
+      if (!playing) {
+        sound.play();
+        fft.setInput(sound);
+        playing = true;
+      } else {
+        sound.stop();
+        playing = false;
+      }
+    }
+
+    // Iniciar el setup y el draw al cargar la página
+    function start() {
+      setup();
+      draw();
+    }
+
+    // Iniciar el setup y el draw al cargar la página
+    window.onload = start;
+  </script>
+</body>
+</html>
