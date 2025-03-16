@@ -1,0 +1,3 @@
+DPMC000001, "Nombre diplomado 1"
+DPMC000002, "Nombre diplomado 2"
+DPMC000003, "Nombre diplomado 3"
