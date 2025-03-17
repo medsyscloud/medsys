@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect</title>
+    <script>
+        // Obtener parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const diploma = urlParams.get('diploma');
+        const tipo = urlParams.get('tipo');
+        
+        // Redirigir inmediatamente usando los parámetros
+        // window.location.href = `https://www.medsyscloud.com/diploma.html?diploma=${diploma}&tipo=${tipo}`;
+        window.location.href = `https://www.medsyscloud002.byethost8.com/diplomas/diploma.php?diploma=${diploma};
+    </script>
+</head>
+<body>
+    <!-- El cuerpo estará vacío ya que la redirección es inmediata -->
+    Redirigiendo...
+</body>
+</html>
