@@ -2,32 +2,39 @@
 <html>
 <head>
     <title>Redirect</title>
-
     <style>
         body {
             background-color: black;
-            color: white; /* Para que el texto "Redirigiendo..." sea visible en blanco */
+            color: white; /* Para que el texto "Verificando Autenticidad..." sea visible en blanco */
             margin: 0; /* Elimina márgenes por defecto */
             height: 100vh; /* Ocupa toda la altura de la pantalla */
             display: flex; /* Centra el texto */
             justify-content: center;
             align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
         }
     </style>
-
     <script>
-        // Obtener parámetros de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const diploma = urlParams.get('diploma');
-        const tipo = urlParams.get('tipo');
-        
-        // Redirigir inmediatamente usando los parámetros
-        // window.location.href = `https://www.medsyscloud.com/diploma.html?diploma=${diploma}&tipo=${tipo}`;
-        window.location.href = `https://www.medsyscloud002.byethost8.com/diplomas/diploma.php?diploma=${diploma}`;
+        // Esperar a que el DOM esté completamente cargado
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener parámetros de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const diploma = urlParams.get('diploma');
+            
+            // Verificar si diploma existe antes de redirigir
+            if (diploma) {
+                setTimeout(function() {
+                    window.location.href = `https://www.medsyscloud002.byethost8.com/diplomas/diploma.php?diploma=${diploma}`;
+                }, 1500); // 1.5 segundos de retraso para mostrar el mensaje
+            } else {
+                document.body.innerHTML = "Error: El diploma NO existe'";
+            }
+        });
     </script>
 </head>
 <body>
-    <!-- El cuerpo estará vacío ya que la redirección es inmediata -->
+    <!-- Mensaje mostrado mientras se procesa la redirección -->
     Verificando Autenticidad...
 </body>
 </html>
