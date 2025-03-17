@@ -2,6 +2,19 @@
 <html>
 <head>
     <title>Redirect</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white; /* Para que el texto "Redirigiendo..." sea visible en blanco */
+            margin: 0; /* Elimina márgenes por defecto */
+            height: 100vh; /* Ocupa toda la altura de la pantalla */
+            display: flex; /* Centra el texto */
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    
     <script>
         // Obtener parámetros de la URL
         const urlParams = new URLSearchParams(window.location.search);
