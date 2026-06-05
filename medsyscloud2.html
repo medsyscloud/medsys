@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedsysCloud – Software para Médicos y Odontólogos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    /* =============================================
+       VARIABLES Y RESET
+    ============================================= */
+    :root {
+      --blue:        #1a6af4;
+      --blue-dark:   #1558d6;
+      --green:       #22a96e;
+      --green-dark:  #1b8e5c;
+      --text:        #1a1a2e;
+      --text-light:  #555;
+      --bg-light:    #f4f7fc;
+      --border:      #e0e6f0;
+      --white:       #ffffff;
+      --navy:        #0d1b4b;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* =============================================
+       UTILIDADES
+    ============================================= */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-blue  { background: var(--blue);  color: var(--white); }
+    .btn-blue:hover  { background: var(--blue-dark); }
+
+    .btn-outline-blue {
+      background: transparent;
+      color: var(--blue);
+      border: 1px solid var(--blue);
+    }
+    .btn-outline-blue:hover { background: var(--blue); color: var(--white); }
+
+    .btn-green { background: var(--green); color: var(--white); }
+    .btn-green:hover { background: var(--green-dark); }
+
+    .btn-orange { background: #ff7a00; color: var(--white); }
+    .btn-orange:hover { background: #e66e00; }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+    .section-title span { color: var(--blue); }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 48px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--blue);
+      margin: 12px auto 40px;
+      border-radius: 2px;
+    }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    /* Logo */
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .logo span { color: var(--blue); }
+
+    /* Links de escritorio */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 25px;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .active { color: var(--blue); border-bottom: 2px solid var(--blue); padding-bottom: 2px; }
+
+    /* Botón hamburguesa */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    /* Estado abierto */
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Menú móvil (oculto por defecto) */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 16px 24px 24px;
+      gap: 4px;
+    }
+    .mobile-menu a {
+      padding: 10px 0;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--blue); }
+    .mobile-menu .btn { margin-top: 12px; text-align: center; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #e8f0fe 100%);
+      padding: 72px 0 64px;
+    }
+
+    .hero-inner {
+      display: grid;
+      /*grid-template-columns: 1fr 1fr;*/
+      grid-template-columns: 44fr 56fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #dce9ff;
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--blue); }
+
+    .hero p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .hero p strong { color: var(--text); }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    /* Mockup placeholder (en producción pon una imagen real) */
+    .hero-image {
+      position: relative;
+    }
+    .hero-image img {
+      /*border-radius: 12px;
+      box-shadow: 0 24px 64px rgba(26,106,244,0.18);*/
+      width: 100%;
+      height: auto;
+    }
+    .hero-mockup {
+      width: 100%;
+      height: 340px;
+      background: linear-gradient(135deg, #1a6af4 0%, #0d1b4b 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 24px 64px rgba(26,106,244,0.22);
+    }
+    .hero-mockup svg { opacity: 0.35; }
+
+    /* =============================================
+       SELECTOR DE PLATAFORMA
+    ============================================= */
+    .platforms {
+      padding: 72px 0;
+    }
+
+    .platform-icon-top {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .platform-icon-top svg { margin: 0 auto; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      background: var(--white);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 8px 32px rgba(26,106,244,0.10); }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .card-header h3 { font-size: 1.15rem; font-weight: 700; }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-icon.blue  { background: #dce9ff; color: var(--blue); }
+    .card-icon.green { background: #d4f5e9; color: var(--green); }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .check-list li {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      padding: 4px 0;
+      padding-left: 22px;
+      position: relative;
+    }
+    .check-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 700;
+    }
+    .card.green-card .check-list li::before { color: var(--green); }
+
+    /* =============================================
+       ESPECIALIDADES
+    ============================================= */
+    .specialties {
+      background: var(--bg-light);
+      padding: 72px 0;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .spec-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+
+    .spec-icon {
+      /*width: 48px;*/
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: #dce9ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .spec-icon.green { background: #d4f5e9; }
+    .spec-icon.purple { background: #ede9ff; }
+
+    .spec-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .spec-card p  { font-size: 0.88rem; color: var(--text-light); }
+
+    /* =============================================
+       BENEFICIOS
+    ============================================= */
+    .benefits {
+      padding: 72px 0;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .benefit {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .benefit-icon {
+      /*width: 52px;*/
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #dce9ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .benefit h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+    .benefit p  { font-size: 0.85rem; color: var(--text-light); }
+
+    /* =============================================
+       TRAYECTORIA (DARK SECTION)
+    ============================================= */
+    .legacy {
+      background: var(--navy);
+      color: var(--white);
+      padding: 72px 0;
+    }
+
+    .legacy-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .legacy-badge {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .legacy-badge svg { flex-shrink: 0; }
+
+    .legacy h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .legacy p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 14px;
+    }
+
+    /* Imagen placeholder */
+    .legacy-photo {
+      width: 100%;
+      height: 320px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.85rem;
+    }
+
+    /* =============================================
+       MISIÓN (2 COLUMNAS CON IMAGEN)
+    ============================================= */
+    .mission {
+      padding: 72px 0;
+    }
+
+    .mission-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .mission-photo {
+      width: 100%;
+      height: 300px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #e8f5f0, #c8e6dc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    .mission-content .mission-icon {
+      width: 60px;
+      height: 60px;
+      background: #dce9ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .mission-content h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .mission-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    /* =============================================
+       CTA FINAL
+    ============================================= */
+    .cta-section {
+      background: linear-gradient(135deg, #1a6af4, #0d1b4b);
+      color: var(--white);
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      padding: 32px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--blue); }
+    .footer-logo small {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    .nav-btn-desktop {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      .hero-inner       { grid-template-columns: 1fr; }
+      .hero h1          { font-size: 2rem; }
+      .hero-image       { display: none; }
+      .cards            { grid-template-columns: 1fr; }
+      .spec-grid        { grid-template-columns: 1fr 1fr; }
+      .benefits-grid    { grid-template-columns: 1fr 1fr; }
+      .legacy-inner     { grid-template-columns: 1fr; }
+      .mission-inner    { grid-template-columns: 1fr; }
+    }
+
+    /* Móvil */
+
+    .solo-movil {
+      display: none;
+    }
+
+    .solo-pc {
+      display: block;
+    }    
+
+    @media (max-width: 900px) {
+      .nav-links        { display: none; }   /* Se muestra vía menú hamburguesa */
+      .nav-btn-desktop  { display: none; }
+      .hamburger        { display: flex; }
+
+      .mobile-menu.open { display: flex; }
+
+      .hero             { padding: 48px 0 40px; }
+      .hero h1          { font-size: 1.7rem; }
+      .hero-ctas        { flex-direction: column; }
+      .hero-ctas .btn   { text-align: center; }
+
+      .section-title    { font-size: 1.35rem; }
+
+      .spec-grid        { grid-template-columns: 1fr; }
+      .benefits-grid    { grid-template-columns: 1fr 1fr; }
+
+      .cta-section h2   { font-size: 1.3rem; }
+      .cta-btns         { flex-direction: column; align-items: center; }
+
+      .footer-inner     { flex-direction: column; align-items: flex-start; }
+      .footer-links     { gap: 14px; }
+
+      .solo-movil       { display: block; }
+      .solo-pc          { display: none; }
+    }
+
+    @media (max-width: 420px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a class="logo" href="#"><span>Medsys</span>Cloud</a>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#">Medsys 15</a></li>
+        <li><a href="#">Medsys Online</a></li>
+        <li><a href="#"><i class="bi bi-cart4" style="color: #1a6af4; font-size: 30px; vertical-align: middle; line-height: 1;"></i></a></li>
+        <li><a href="#"><i class="bi bi-facebook" style="color: #1a6af4; font-size: 30px; vertical-align: middle; line-height: 1;"></i></a></li>
+      </ul>
+
+      <div class="nav-btn-desktop">
+        <a class="btn btn-green" href="#">Suscriptores</a>
+        <a class="btn btn-blue" href="#">Médicos</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Inicio</a>
+      <a href="#">Medsys 15</a>
+      <a href="#">Medsys Online</a>
+      <a href="#">Tienda</a>
+      <a href="#">Facebook</a>
+      <a class="btn btn-green" href="#" style="color: #ffffff;">Suscriptores</a>
+      <a class="btn btn-blue" href="#" style="color: #ffffff;">Médicos</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-content">
+        <div class="solo-movil">
+                  <img src="imagenes/medsys-r1-c1-959x579.png" alt="">
+        </div>
+
+          <span class="hero-badge">Software clínico para profesionales independientes</span>
+
+          <h1>
+            Software para<br>
+            <span>Médicos y<br>Odontólogos</span>
+          </h1>
+
+          <p>
+            Administre la información de sus pacientes, documentos
+            clínicos, imágenes médicas y odontológicas desde
+            una plataforma diseñada para profesionales independientes.
+          </p>
+          <p>
+            Disponible en versión <span style="font-weight: bold;">instalable</span> para Windows
+            o en versión <span style="font-weight: bold;">Online</span> accesible desde cualquier dispositivo.
+          </p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-blue" href="#plataformas">Más Información</a>
+            <!-- <a class="btn btn-outline-blue" href="#">Conocer Medsys Online</a> -->
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="imagenes/medsys-r1-c1-959x579.png" alt="">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="platforms" id="plataformas">
+    <div class="container">
+
+      <h2 class="section-title">
+        Elija la <span>plataforma</span> que mejor se adapte<br>a su práctica profesional
+      </h2>
+      <div class="divider"></div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon blue">
+              <i class="bi bi-display" style="color: #0056e0; font-size: 30px;"></i>
+            </div>
+            <h3>Medsys 15</h3>
+          </div>
+          <p>
+            Software instalable en Windows para médicos y odontólogos
+            que prefieren trabajar con sus datos almacenados localmente.
+          </p>
+          <ul class="check-list">
+            <li>Funciona sin conexión a Internet.</li>
+            <li>Información almacenada en su equipo.</li>
+            <li>Un solo pago.</li>
+            <li>Compatible con múltiples especialidades.</li>
+          </ul>
+          <a class="btn btn-blue" href="#">Ver Medsys 15</a>
+        </div>
+
+        <div class="card green-card">
+          <div class="card-header">
+            <div class="card-icon green">
+              <i class="bi bi-globe" style="color: #419f43; font-size: 30px;"></i>
+            </div>
+            <h3>Medsys Online</h3>
+          </div>
+          <p>
+            Plataforma accesible desde navegador web para profesionales
+            que requieren acceso remoto a su información.
+          </p>
+          <ul class="check-list">
+            <li>Acceso desde cualquier dispositivo.</li>
+            <li>Información almacenada en línea.</li>
+            <li>Sin instalaciones complejas.</li>
+            <li>Disponible desde cualquier lugar con Internet.</li>
+          </ul>
+          <a class="btn btn-green" href="#">Ver Medsys Online</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="specialties">
+    <div class="container">
+
+      <h2 class="section-title">La misma plataforma<br>adaptada a su forma de trabajo</h2>
+      <div class="divider"></div>
+
+      <div class="spec-grid">
+
+        <div class="spec-card">
+          <div class="spec-icon">
+            <i class="ph ph-stethoscope" style="color: #1B67EA; font-size: 30px;"></i>
+          </div>
+          <h4>Médico</h4>
+          <p>Pensado para médicos generales y especialistas que requieren organizar información clínica, consultas, documentos e imágenes médicas.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon green">
+            <i class="ph ph-tooth" style="color: #409C3F; font-size: 30px;"></i>
+          </div>
+          <h4>Dental</h4>
+          <p>Diseñado para odontólogos y estomatólogos que necesitan gestionar pacientes, tratamientos e imágenes odontológicas desde una sola plataforma.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-icon purple">
+            <i class="ph ph-hospital" style="color: #5A38E7; font-size: 30px;"></i>
+          </div>
+          <h4>Mixto</h4>
+          <p>Permite utilizar simultáneamente las herramientas médicas y odontológicas en un mismo entorno de trabajo.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <h2 class="section-title">Una tecnología que trabaja para usted</h2>
+      <div class="divider"></div>
+
+      <div class="benefits-grid">
+
+        <div class="benefit">
+          <div class="benefit-icon">
+<i class="bi bi-box" style="color: #1B67EA; font-size: 30px;"></i>
+          </div>
+          <h4>Fácil de usar</h4>
+          <p>Interfaz sencilla diseñada para que pueda concentrarse en sus pacientes.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+<i class="bi bi-database" style="color: #1B67EA; font-size: 30px;"></i>
+          </div>
+          <h4>Información organizada</h4>
+          <p>Mantenga historias clínicas, documentos e imágenes accesibles cuando las necesite.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+<i class="bi bi-person" style="color: #1B67EA; font-size: 30px;"></i>
+          </div>
+          <h4>Diseñado para profesionales independientes</h4>
+          <p>Herramientas enfocadas en la práctica diaria de médicos y odontólogos.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+<i class="bi bi-boxes" style="color: #1B67EA; font-size: 30px;"></i>
+          </div>
+          <h4>Disponible según sus necesidades</h4>
+          <p>Elija entre una solución instalada o una plataforma online.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="legacy">
+    <div class="container">
+      <div class="legacy-inner">
+
+        <div>
+          <div class="legacy-badge">
+<i class="ph ph-medal" style="color: #ffffff; font-size: 60px;"></i>
+          </div>
+          <h2>Más de 25 años acompañando<br>a profesionales de la salud</h2>
+          <p>
+            Durante más de dos décadas hemos desarrollado soluciones
+            enfocadas exclusivamente en médicos y odontólogos.
+          </p>
+          <p>
+            Nuestra experiencia nos ha permitido evolucionar constantemente
+            para ofrecer herramientas prácticas, fáciles de usar y adaptadas
+            a las necesidades reales de la consulta profesional.
+          </p>
+          <p>
+            Miles de usuarios han confiado en Medsys para organizar y
+            gestionar la información clínica de sus pacientes.
+          </p>
+        </div>
+
+        <div class="legacy-photo">
+          📷 Foto del equipo / profesionales
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="mission">
+    <div class="container">
+      <div class="mission-inner">
+
+        <div class="mission-photo">
+          📷 Imagen odontólogo con paciente
+        </div>
+
+        <div class="mission-content">
+          <div class="mission-icon">
+<i class="ph ph-hand-heart" style="color: #1B67EA; font-size: 30px;"></i>
+          </div>
+          <h2>Las manos en el paciente<br>y no en el teclado</h2>
+          <p>
+            Nuestro objetivo es reducir el tiempo dedicado a tareas repetitivas
+            para que pueda concentrarse en lo más importante: la atención de
+            sus pacientes.
+          </p>
+          <p>
+            Medsys ayuda a organizar información clínica, documentos e
+            imágenes de forma práctica y accesible.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>¿Desea conocer cuál versión es adecuada para usted?</h2>
+    <p>Compare Medsys 15 y Medsys Online y encuentre la solución que mejor se adapte a su forma de trabajo.</p>
+    <div class="cta-btns">
+      <a class="btn btn-outline-white" href="#">Ver Medsys 15</a>
+      <a class="btn btn-green" href="#">Ver Medsys Online</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-logo">
+        <span>Medsys</span>Cloud
+        <small>© MedsysCloud. Todos los derechos reservados.</small>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Medsys 15</a></li>
+        <li><a href="#">Medsys Online</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Tienda</a></li>
+        <li><a href="#">Médicos</a></li>
+      </ul>
+
+
+    </div>
+  </footer>
+
+  <script>
+    // Seleccionamos los elementos
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+
+    // Al hacer clic en el botón, alternamos las clases "open"
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Cerramos el menú si el usuario hace clic en cualquier enlace
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
